@@ -7,21 +7,24 @@
 //
 
 #import "AppDelegate.h"
-
-#import "ViewController.h"
+#import <Parse/Parse.h>
+#import "MainController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Parse setApplicationId:@"ZmXU76oRGKKHlMI4jWMyo1Zx7QAO0y5xfyGOe3d3"
+                  clientKey:@"M0dWGklbwKe3fi80vwMz5TudOYn3pB8DlbSj8feN"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-    } else {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
-    }
-    self.window.rootViewController = self.viewController;
+    
+    MainController *mainController = [[MainController alloc] init];
+    
+    self.window.rootViewController = [mainController getMainView];
     [self.window makeKeyAndVisible];
     return YES;
 }
