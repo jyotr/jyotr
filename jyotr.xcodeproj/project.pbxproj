@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8251985174A2FBA00A36A65 /* LoginView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8251983174A2FBA00A36A65 /* LoginView_iPhone.xib */; };
+		D8251986174A2FBA00A36A65 /* RegistrationView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */; };
 		D8C6D7A417491B9400D796A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7A317491B9400D796A5 /* UIKit.framework */; };
 		D8C6D7A617491B9400D796A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7A517491B9400D796A5 /* Foundation.framework */; };
 		D8C6D7A817491B9400D796A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7A717491B9400D796A5 /* CoreGraphics.framework */; };
@@ -24,9 +26,7 @@
 		D8C6D7E917491CB500D796A5 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C6D7E817491CB500D796A5 /* MainController.m */; };
 		D8C6D7EC1749257900D796A5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7EB1749257900D796A5 /* Parse.framework */; };
 		D8C6D7F0174925C100D796A5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C6D7EE174925C100D796A5 /* LoginViewController.m */; };
-		D8C6D7F1174925C100D796A5 /* LoginView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8C6D7EF174925C100D796A5 /* LoginView_iPhone.xib */; };
 		D8C6D7F5174929FE00D796A5 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C6D7F3174929FE00D796A5 /* RegistrationViewController.m */; };
-		D8C6D7F6174929FE00D796A5 /* RegistrationView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8C6D7F4174929FE00D796A5 /* RegistrationView_iPhone.xib */; };
 		D8C6D7F817492D0900D796A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7F717492D0900D796A5 /* AudioToolbox.framework */; };
 		D8C6D7FA17492D0F00D796A5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7F917492D0F00D796A5 /* CFNetwork.framework */; };
 		D8C6D7FC17492D1B00D796A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7FB17492D1B00D796A5 /* CoreLocation.framework */; };
@@ -49,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8251983174A2FBA00A36A65 /* LoginView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView_iPhone.xib; sourceTree = "<group>"; };
+		D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationView_iPhone.xib; sourceTree = "<group>"; };
 		D8C6D7A017491B9400D796A5 /* jyotr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jyotr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C6D7A317491B9400D796A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8C6D7A517491B9400D796A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,10 +75,8 @@
 		D8C6D7EB1749257900D796A5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D8C6D7ED174925C100D796A5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../View/LoginViewController.h; sourceTree = "<group>"; };
 		D8C6D7EE174925C100D796A5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../View/LoginViewController.m; sourceTree = "<group>"; };
-		D8C6D7EF174925C100D796A5 /* LoginView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginView_iPhone.xib; path = ../View/LoginView_iPhone.xib; sourceTree = "<group>"; };
 		D8C6D7F2174929FE00D796A5 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		D8C6D7F3174929FE00D796A5 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
-		D8C6D7F4174929FE00D796A5 /* RegistrationView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegistrationView_iPhone.xib; path = ../Controller/RegistrationView_iPhone.xib; sourceTree = "<group>"; };
 		D8C6D7F717492D0900D796A5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D8C6D7F917492D0F00D796A5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D8C6D7FB17492D1B00D796A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -122,6 +122,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D8251980174A2F5900A36A65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D8C6D79717491B9400D796A5 = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +173,7 @@
 			children = (
 				D8C6D7B217491B9400D796A5 /* AppDelegate.h */,
 				D8C6D7B317491B9400D796A5 /* AppDelegate.m */,
-				D8C6D7E317491C7600D796A5 /* Model */,
+				D8251980174A2F5900A36A65 /* Model */,
 				D8C6D7E217491C7600D796A5 /* Controller */,
 				D8C6D7E617491C7600D796A5 /* View */,
 				D8C6D7E517491C7600D796A5 /* Resources */,
@@ -223,18 +230,11 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		D8C6D7E317491C7600D796A5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		D8C6D7E417491C7600D796A5 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
-				D8C6D7EF174925C100D796A5 /* LoginView_iPhone.xib */,
-				D8C6D7F4174929FE00D796A5 /* RegistrationView_iPhone.xib */,
+				D8251983174A2FBA00A36A65 /* LoginView_iPhone.xib */,
+				D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -336,8 +336,8 @@
 				D8C6D7B617491B9400D796A5 /* Default.png in Resources */,
 				D8C6D7B817491B9400D796A5 /* Default@2x.png in Resources */,
 				D8C6D7BA17491B9400D796A5 /* Default-568h@2x.png in Resources */,
-				D8C6D7F1174925C100D796A5 /* LoginView_iPhone.xib in Resources */,
-				D8C6D7F6174929FE00D796A5 /* RegistrationView_iPhone.xib in Resources */,
+				D8251985174A2FBA00A36A65 /* LoginView_iPhone.xib in Resources */,
+				D8251986174A2FBA00A36A65 /* RegistrationView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +561,7 @@
 				D8C6D7DD17491B9400D796A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8C6D7DE17491B9400D796A5 /* Build configuration list for PBXNativeTarget "jyotrTests" */ = {
 			isa = XCConfigurationList;
@@ -569,6 +570,7 @@
 				D8C6D7E017491B9400D796A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
