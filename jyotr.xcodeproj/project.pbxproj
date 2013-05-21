@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D8251985174A2FBA00A36A65 /* LoginView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8251983174A2FBA00A36A65 /* LoginView_iPhone.xib */; };
+		5AC55E2E174BDE55001FC75E /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC55E2D174BDE55001FC75E /* LogInViewController.m */; };
+		5AC55E32174BE360001FC75E /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AC55E31174BE360001FC75E /* bg.jpg */; };
+		5AC55E34174BEB28001FC75E /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC55E33174BEB28001FC75E /* fb.png */; };
 		D8251986174A2FBA00A36A65 /* RegistrationView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */; };
 		D8C6D7A417491B9400D796A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7A317491B9400D796A5 /* UIKit.framework */; };
 		D8C6D7A617491B9400D796A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7A517491B9400D796A5 /* Foundation.framework */; };
@@ -25,7 +27,6 @@
 		D8C6D7D817491B9400D796A5 /* jyotrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C6D7D717491B9400D796A5 /* jyotrTests.m */; };
 		D8C6D7E917491CB500D796A5 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C6D7E817491CB500D796A5 /* MainController.m */; };
 		D8C6D7EC1749257900D796A5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7EB1749257900D796A5 /* Parse.framework */; };
-		D8C6D7F0174925C100D796A5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C6D7EE174925C100D796A5 /* LoginViewController.m */; };
 		D8C6D7F5174929FE00D796A5 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C6D7F3174929FE00D796A5 /* RegistrationViewController.m */; };
 		D8C6D7F817492D0900D796A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7F717492D0900D796A5 /* AudioToolbox.framework */; };
 		D8C6D7FA17492D0F00D796A5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7F917492D0F00D796A5 /* CFNetwork.framework */; };
@@ -49,7 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D8251983174A2FBA00A36A65 /* LoginView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView_iPhone.xib; sourceTree = "<group>"; };
+		5AC55E2C174BDE55001FC75E /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogInViewController.h; path = ../../LogInViewController.h; sourceTree = "<group>"; };
+		5AC55E2D174BDE55001FC75E /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogInViewController.m; path = ../../LogInViewController.m; sourceTree = "<group>"; };
+		5AC55E31174BE360001FC75E /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		5AC55E33174BEB28001FC75E /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = "<group>"; };
 		D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationView_iPhone.xib; sourceTree = "<group>"; };
 		D8C6D7A017491B9400D796A5 /* jyotr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jyotr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C6D7A317491B9400D796A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -73,8 +77,6 @@
 		D8C6D7E717491CB500D796A5 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		D8C6D7E817491CB500D796A5 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		D8C6D7EB1749257900D796A5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		D8C6D7ED174925C100D796A5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../View/LoginViewController.h; sourceTree = "<group>"; };
-		D8C6D7EE174925C100D796A5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../View/LoginViewController.m; sourceTree = "<group>"; };
 		D8C6D7F2174929FE00D796A5 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		D8C6D7F3174929FE00D796A5 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		D8C6D7F717492D0900D796A5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -187,6 +189,8 @@
 		D8C6D7AA17491B9400D796A5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5AC55E31174BE360001FC75E /* bg.jpg */,
+				5AC55E33174BEB28001FC75E /* fb.png */,
 				D8C6D7AB17491B9400D796A5 /* jyotr-Info.plist */,
 				D8C6D7AC17491B9400D796A5 /* InfoPlist.strings */,
 				D8C6D7AF17491B9400D796A5 /* main.m */,
@@ -222,8 +226,8 @@
 			children = (
 				D8C6D7E717491CB500D796A5 /* MainController.h */,
 				D8C6D7E817491CB500D796A5 /* MainController.m */,
-				D8C6D7ED174925C100D796A5 /* LoginViewController.h */,
-				D8C6D7EE174925C100D796A5 /* LoginViewController.m */,
+				5AC55E2C174BDE55001FC75E /* LogInViewController.h */,
+				5AC55E2D174BDE55001FC75E /* LogInViewController.m */,
 				D8C6D7F2174929FE00D796A5 /* RegistrationViewController.h */,
 				D8C6D7F3174929FE00D796A5 /* RegistrationViewController.m */,
 			);
@@ -233,7 +237,6 @@
 		D8C6D7E417491C7600D796A5 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
-				D8251983174A2FBA00A36A65 /* LoginView_iPhone.xib */,
 				D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */,
 			);
 			path = Nibs;
@@ -336,8 +339,9 @@
 				D8C6D7B617491B9400D796A5 /* Default.png in Resources */,
 				D8C6D7B817491B9400D796A5 /* Default@2x.png in Resources */,
 				D8C6D7BA17491B9400D796A5 /* Default-568h@2x.png in Resources */,
-				D8251985174A2FBA00A36A65 /* LoginView_iPhone.xib in Resources */,
 				D8251986174A2FBA00A36A65 /* RegistrationView_iPhone.xib in Resources */,
+				5AC55E32174BE360001FC75E /* bg.jpg in Resources */,
+				5AC55E34174BEB28001FC75E /* fb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,8 +379,8 @@
 				D8C6D7B017491B9400D796A5 /* main.m in Sources */,
 				D8C6D7B417491B9400D796A5 /* AppDelegate.m in Sources */,
 				D8C6D7E917491CB500D796A5 /* MainController.m in Sources */,
-				D8C6D7F0174925C100D796A5 /* LoginViewController.m in Sources */,
 				D8C6D7F5174929FE00D796A5 /* RegistrationViewController.m in Sources */,
+				5AC55E2E174BDE55001FC75E /* LogInViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

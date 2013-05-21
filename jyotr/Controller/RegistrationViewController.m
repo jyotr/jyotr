@@ -36,9 +36,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-
 - (void)viewDidUnload {
     [self setSignupBtn:nil];
     [self setNameField:nil];
@@ -46,6 +43,7 @@
     [self setPasswordField:nil];
     [super viewDidUnload];
 }
+
 - (IBAction)signUp:(id)sender {
     PFUser *user = [PFUser user];
     user.username = self.nameField.text;
@@ -60,8 +58,7 @@
             NSLog(@"Hooray! Let them use the app now.");
             // Hooray! Let them use the app now.
         } else {
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            NSLog(errorString);
+            //NSString *errorString = [[error userInfo] objectForKey:@"error"];
             // Show the errorString somewhere and let the user try again.
         }
     }];

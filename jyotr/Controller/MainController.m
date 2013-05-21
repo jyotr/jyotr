@@ -21,14 +21,28 @@
 }
 
 -(UIViewController *) getMainView{
-    
-    if (true) {
+    if (false) {
+        NSLog(@"MAIN VIEW");
+        /*
         self.loginVC = [[LoginViewController alloc] initWithNibName:@"LoginView_iPhone" bundle:nil];
         return self.loginVC;
+        */
     } else {
-        NSLog(@"false");
+
+        LogInViewController *logInController =[[LogInViewController alloc] init];
+        logInController.delegate = self;
+        
+        logInController.fields = PFLogInFieldsUsernameAndPassword
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton
+        | PFLogInFieldsPasswordForgotten
+        | PFLogInFieldsFacebook
+        | PFLogInFieldsTwitter
+        //| PFLogInFieldsDismissButton
+        ;
+        
+        return logInController;
     }
-    
 }
 
 @end

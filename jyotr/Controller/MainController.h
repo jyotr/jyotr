@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LoginViewController.h"
+#import <Parse/Parse.h>
+#import "LogInViewController.h"
 
-@interface MainController : NSObject
-
-@property (nonatomic, strong) LoginViewController *loginVC;
+@interface MainController : NSObject <PFLogInViewControllerDelegate>
 
 -(UIViewController *) getMainView;
 
