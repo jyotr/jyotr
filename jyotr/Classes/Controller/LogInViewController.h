@@ -10,6 +10,7 @@
 
 @interface LogInViewController : UIViewController
 
-- (IBAction)loginButtonTouchHandler:(id)sender;
+- (IBAction)loginFacebookButtonTouchHandler:(id)sender;
+- (IBAction)loginTwitterButtonTouchHandler:(id)sender;
 
 @end

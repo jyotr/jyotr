@@ -17,6 +17,8 @@
     [Parse setApplicationId:@"ZmXU76oRGKKHlMI4jWMyo1Zx7QAO0y5xfyGOe3d3"
                   clientKey:@"M0dWGklbwKe3fi80vwMz5TudOYn3pB8DlbSj8feN"];
     
+    [PFTwitterUtils initializeWithConsumerKey:@"jUbO89kv9PhQPZj3Ld459w"
+                               consumerSecret:@"gHhxcTKnitv75IQkN9lORheMFnvUP4P0EWJWN60"];
     
     [PFFacebookUtils initializeFacebook];
     
