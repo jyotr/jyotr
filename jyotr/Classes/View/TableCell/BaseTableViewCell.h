@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.h
+//  BaseTableViewCell.h
 //  jyotr
 //
 //  Created by Armen Abrahamyan on 5/31/13.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseTableViewController.h" 
 
-@interface ProfileViewController : BaseTableViewController
+@interface BaseTableViewCell : UITableViewCell
 
 @end

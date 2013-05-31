@@ -10,6 +10,9 @@
 		2CFCDAFC1758EBAB00E18247 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDAF61758EBAB00E18247 /* LogInViewController.m */; };
 		2CFCDAFD1758EBAB00E18247 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDAF81758EBAB00E18247 /* RegistrationViewController.m */; };
 		2CFCDAFE1758EBAB00E18247 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDAFB1758EBAB00E18247 /* ProfileViewController.m */; };
+		2CFCDB011758EE6F00E18247 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDB001758EE6F00E18247 /* BaseTableViewController.m */; };
+		2CFCDB041758EED500E18247 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDB031758EED500E18247 /* BaseTableViewCell.m */; };
+		2CFCDB081758EEFE00E18247 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDB071758EEFE00E18247 /* ProfileTableViewCell.m */; };
 		C005AFF817556F6D002BDF6E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C005AFF717556F6D002BDF6E /* FacebookSDK.framework */; };
 		C005AFFA17556F85002BDF6E /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C005AFF917556F85002BDF6E /* FacebookSDKResources.bundle */; };
 		C005AFFC17557003002BDF6E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C005AFFB17557003002BDF6E /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -66,6 +69,12 @@
 		2CFCDAF81758EBAB00E18247 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		2CFCDAFA1758EBAB00E18247 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		2CFCDAFB1758EBAB00E18247 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		2CFCDAFF1758EE6F00E18247 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTableViewController.h; path = ../View/TableCell/BaseTableViewController.h; sourceTree = "<group>"; };
+		2CFCDB001758EE6F00E18247 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTableViewController.m; path = ../View/TableCell/BaseTableViewController.m; sourceTree = "<group>"; };
+		2CFCDB021758EED500E18247 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		2CFCDB031758EED500E18247 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		2CFCDB061758EEFE00E18247 /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
+		2CFCDB071758EEFE00E18247 /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
 		C005AFF717556F6D002BDF6E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C005AFF917556F85002BDF6E /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		C005AFFB17557003002BDF6E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -154,6 +163,9 @@
 		2CFCDAF31758EB6400E18247 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				2CFCDB051758EEEB00E18247 /* Profile */,
+				2CFCDB021758EED500E18247 /* BaseTableViewCell.h */,
+				2CFCDB031758EED500E18247 /* BaseTableViewCell.m */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -178,6 +190,15 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		2CFCDB051758EEEB00E18247 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2CFCDB061758EEFE00E18247 /* ProfileTableViewCell.h */,
+				2CFCDB071758EEFE00E18247 /* ProfileTableViewCell.m */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		C0132B4D175298F100768231 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +214,8 @@
 		C0132B4E175298F100768231 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2CFCDAFF1758EE6F00E18247 /* BaseTableViewController.h */,
+				2CFCDB001758EE6F00E18247 /* BaseTableViewController.m */,
 				2CFCDAF41758EBAB00E18247 /* Authentication */,
 				2CFCDAF91758EBAB00E18247 /* Profile */,
 				C0132B51175298F100768231 /* MainController.h */,
@@ -473,6 +496,9 @@
 				2CFCDAFC1758EBAB00E18247 /* LogInViewController.m in Sources */,
 				2CFCDAFD1758EBAB00E18247 /* RegistrationViewController.m in Sources */,
 				2CFCDAFE1758EBAB00E18247 /* ProfileViewController.m in Sources */,
+				2CFCDB011758EE6F00E18247 /* BaseTableViewController.m in Sources */,
+				2CFCDB041758EED500E18247 /* BaseTableViewCell.m in Sources */,
+				2CFCDB081758EEFE00E18247 /* ProfileTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
