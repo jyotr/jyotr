@@ -21,18 +21,16 @@
 }
 
 -(UIViewController *) getMainView{
-    if (false) {
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
         NSLog(@"MAIN VIEW");
-        /*
-        self.loginVC = [[LoginViewController alloc] initWithNibName:@"LoginView_iPhone" bundle:nil];
-        return self.loginVC;
-        */
+        SignOutViewController *signOutVC = [[SignOutViewController alloc] init];
+        self.mainView = signOutVC;
     } else {
-        if (![PFUser currentUser]) {
+        if (true/*!currentUser*/) {
+            NSLog(@"LogInViewController");
             LogInViewController *logInController =[[LogInViewController alloc] initWithNibName:@"LoginView_iPhone" bundle:nil];
-            
             self.mainView = logInController;
-            
         } else {
             NSLog(@"logged in user");
             // Send request to Facebook
@@ -46,7 +44,6 @@
                     NSDictionary *userData = (NSDictionary *)result;
                     NSString *facebookID = userData[@"id"];
                     NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
-                    
                     
                     if (facebookID) {
                         userProfile[@"facebookId"] = facebookID;
@@ -86,12 +83,8 @@
                     NSLog(@"Some other error: %@", error);
                 }
                 NSLog(@"%@", userProfile);
-                
             }];
-
         }
-    
-    
     }
     return self.mainView;
 }

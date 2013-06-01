@@ -7,8 +7,8 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-
 #import "LogInViewController.h"
+#import "SignOutViewController.h"
 
 @interface LogInViewController ()
 
@@ -90,7 +90,7 @@
 - (IBAction)loginFacebookButtonTouchHandler:(id)sender  {
     // Set permissions required from the facebook user account
     NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
-    PFUser *currentUser = [PFUser currentUser];
+    //PFUser *currentUser = [PFUser currentUser];
     
     // Login PFUser using facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
@@ -132,6 +132,31 @@
 
 }
 
+- (IBAction)registrationButtonTouchHandler:(id)sender {
+    RegistrationViewController *registVC =[[RegistrationViewController alloc] initWithNibName:@"RegistrationView_iPhone" bundle:nil];
+    [self.navigationController pushViewController:registVC animated:YES];
+}
+
+- (IBAction)loginButtonTouchHandler:(id)sender {
+    //NSLog(@"user: %@",self.userNameField.text);
+    //NSLog(@"pass: %@",self.loginPasswordField.text);
+    [PFUser logInWithUsernameInBackground:self.userNameField.text password:self.loginPasswordField.text
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            NSLog(@"Do stuff after successful login.");
+                                            SignOutViewController *signOutVC = [[SignOutViewController alloc] init];
+                                            [self dismissKeyboard];
+                                            [self.navigationController pushViewController:signOutVC animated:YES];
+                                        } else {
+                                            NSLog(@"The login failed. Check error to see why.");
+                                        }
+                                    }];
+}
+
+- (void)dismissKeyboard{
+    [self.userNameField resignFirstResponder];
+    [self.loginPasswordField resignFirstResponder];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -139,4 +164,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setUserNameField:nil];
+    [self setLoginPasswordField:nil];
+    [super viewDidUnload];
+}
 @end

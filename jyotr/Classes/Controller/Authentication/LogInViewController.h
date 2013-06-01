@@ -7,10 +7,17 @@
 //
 
 #import <Parse/Parse.h>
+#import "RegistrationViewController.h"
 
 @interface LogInViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *userNameField;
+@property (weak, nonatomic) IBOutlet UITextField *loginPasswordField;
+
+
 - (IBAction)loginFacebookButtonTouchHandler:(id)sender;
 - (IBAction)loginTwitterButtonTouchHandler:(id)sender;
+- (IBAction)registrationButtonTouchHandler:(id)sender;
+- (IBAction)loginButtonTouchHandler:(id)sender;
 
 @end

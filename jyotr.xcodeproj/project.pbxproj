@@ -13,6 +13,8 @@
 		2CFCDB011758EE6F00E18247 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDB001758EE6F00E18247 /* BaseTableViewController.m */; };
 		2CFCDB041758EED500E18247 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDB031758EED500E18247 /* BaseTableViewCell.m */; };
 		2CFCDB081758EEFE00E18247 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDB071758EEFE00E18247 /* ProfileTableViewCell.m */; };
+		5A2FD714175A112E000936E1 /* SignOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2FD712175A112E000936E1 /* SignOutViewController.m */; };
+		5A2FD715175A112E000936E1 /* SignOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2FD713175A112E000936E1 /* SignOutViewController.xib */; };
 		C005AFF817556F6D002BDF6E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C005AFF717556F6D002BDF6E /* FacebookSDK.framework */; };
 		C005AFFA17556F85002BDF6E /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C005AFF917556F85002BDF6E /* FacebookSDKResources.bundle */; };
 		C005AFFC17557003002BDF6E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C005AFFB17557003002BDF6E /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -75,6 +77,9 @@
 		2CFCDB031758EED500E18247 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		2CFCDB061758EEFE00E18247 /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
 		2CFCDB071758EEFE00E18247 /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
+		5A2FD711175A112E000936E1 /* SignOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignOutViewController.h; sourceTree = "<group>"; };
+		5A2FD712175A112E000936E1 /* SignOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignOutViewController.m; sourceTree = "<group>"; };
+		5A2FD713175A112E000936E1 /* SignOutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignOutViewController.xib; path = ../Classes/Controller/Authentication/SignOutViewController.xib; sourceTree = "<group>"; };
 		C005AFF717556F6D002BDF6E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C005AFF917556F85002BDF6E /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		C005AFFB17557003002BDF6E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -177,6 +182,8 @@
 				2CFCDAF61758EBAB00E18247 /* LogInViewController.m */,
 				2CFCDAF71758EBAB00E18247 /* RegistrationViewController.h */,
 				2CFCDAF81758EBAB00E18247 /* RegistrationViewController.m */,
+				5A2FD711175A112E000936E1 /* SignOutViewController.h */,
+				5A2FD712175A112E000936E1 /* SignOutViewController.m */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -360,6 +367,7 @@
 			children = (
 				C005B003175572D3002BDF6E /* LoginView_iPhone.xib */,
 				D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */,
+				5A2FD713175A112E000936E1 /* SignOutViewController.xib */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -455,6 +463,7 @@
 				C0132B6B1752992000768231 /* tw@2x.png in Resources */,
 				C005AFFA17556F85002BDF6E /* FacebookSDKResources.bundle in Resources */,
 				C005B004175572D3002BDF6E /* LoginView_iPhone.xib in Resources */,
+				5A2FD715175A112E000936E1 /* SignOutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +508,7 @@
 				2CFCDB011758EE6F00E18247 /* BaseTableViewController.m in Sources */,
 				2CFCDB041758EED500E18247 /* BaseTableViewCell.m in Sources */,
 				2CFCDB081758EEFE00E18247 /* ProfileTableViewCell.m in Sources */,
+				5A2FD714175A112E000936E1 /* SignOutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

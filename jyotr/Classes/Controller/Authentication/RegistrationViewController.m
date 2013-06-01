@@ -8,6 +8,7 @@
 
 #import "RegistrationViewController.h"
 #import <Parse/PFUser.h>
+#import "SignOutViewController.h"
 
 @interface RegistrationViewController ()
 
@@ -45,22 +46,35 @@
 }
 
 - (IBAction)signUp:(id)sender {
+    
     PFUser *user = [PFUser user];
     user.username = self.nameField.text;
     user.password = self.passwordField.text;
     user.email = self.emailField.text;
     
     // other fields can be set just like with PFObject
-    [user setObject:@"415-392-0202" forKey:@"phone"];
+    //[user setObject:@"415-392-0202" forKey:@"phone"];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Hooray! Let them use the app now.");
-            // Hooray! Let them use the app now.
+            SignOutViewController *signOutVC = [[SignOutViewController alloc] init];
+            [self.navigationController pushViewController:signOutVC animated:YES];
         } else {
             //NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            // Show the errorString somewhere and let the user try again.
+             NSLog(@"Show the errorString somewhere and let the user try again.");
         }
     }];
 }
+
+- (IBAction)closeButtonTouchHandler:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)dismissKeyboard:(id)sender{
+    [self.nameField resignFirstResponder];
+    [self.emailField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
+}
+
 @end

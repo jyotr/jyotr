@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 #import "LogInViewController.h"
+#import "SignOutViewController.h"
 
 @interface MainController : NSObject <PFLogInViewControllerDelegate>
 
