@@ -37,8 +37,8 @@
 
 - (IBAction)signOut:(id)sender {
     [PFUser logOut];
-    PFUser *currentUser = [PFUser currentUser];
-    NSLog(@"sign out -- %@",currentUser);
+    //PFUser *currentUser = [PFUser currentUser];
+    //NSLog(@"sign out -- %@",currentUser);
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

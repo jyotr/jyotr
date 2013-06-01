@@ -61,8 +61,14 @@
             SignOutViewController *signOutVC = [[SignOutViewController alloc] init];
             [self.navigationController pushViewController:signOutVC animated:YES];
         } else {
-            //NSString *errorString = [[error userInfo] objectForKey:@"error"];
-             NSLog(@"Show the errorString somewhere and let the user try again.");
+            //NSLog(@"%@ -- ", error);
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            UIAlertView *invalidLogin  = [[UIAlertView alloc] initWithTitle:nil
+                                                                    message:errorString
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+            [invalidLogin show];
         }
     }];
 }

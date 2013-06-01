@@ -138,17 +138,21 @@
 }
 
 - (IBAction)loginButtonTouchHandler:(id)sender {
-    //NSLog(@"user: %@",self.userNameField.text);
-    //NSLog(@"pass: %@",self.loginPasswordField.text);
+    [self dismissKeyboard];
     [PFUser logInWithUsernameInBackground:self.userNameField.text password:self.loginPasswordField.text
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             NSLog(@"Do stuff after successful login.");
                                             SignOutViewController *signOutVC = [[SignOutViewController alloc] init];
-                                            [self dismissKeyboard];
                                             [self.navigationController pushViewController:signOutVC animated:YES];
                                         } else {
-                                            NSLog(@"The login failed. Check error to see why.");
+                                            //NSLog(@"%@ -- ", error);
+                                            UIAlertView *invalidLogin  = [[UIAlertView alloc] initWithTitle:nil
+                                                                                                         message:@"Invalid Login"
+                                                                                                        delegate:self
+                                                                                               cancelButtonTitle:@"OK"
+                                                                                               otherButtonTitles:nil];
+                                            [invalidLogin show];
                                         }
                                     }];
 }
