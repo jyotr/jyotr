@@ -108,10 +108,10 @@
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
-//            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
+            [self.navigationController pushViewController:[[SignOutViewController alloc] init] animated:YES];
         } else {
             NSLog(@"User with facebook logged in!");
-//            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
+            [self.navigationController pushViewController:[[SignOutViewController alloc] init] animated:YES];
         }
     }];
     

@@ -30,6 +30,8 @@
 		C0132B691752992000768231 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0132B631752992000768231 /* Default@2x.png */; };
 		C0132B6A1752992000768231 /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = C0132B641752992000768231 /* fb.png */; };
 		C0132B6B1752992000768231 /* tw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0132B651752992000768231 /* tw@2x.png */; };
+		C06C1C46175D49B90065B3B6 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C06C1C45175D49B90065B3B6 /* FacebookViewController.m */; };
+		C06C1C4D175D53390065B3B6 /* FacebookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C06C1C4C175D53390065B3B6 /* FacebookCell.m */; };
 		D8251986174A2FBA00A36A65 /* RegistrationView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */; };
 		D8C6D7A417491B9400D796A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7A317491B9400D796A5 /* UIKit.framework */; };
 		D8C6D7A617491B9400D796A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D7A517491B9400D796A5 /* Foundation.framework */; };
@@ -97,6 +99,10 @@
 		C0132B631752992000768231 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C0132B641752992000768231 /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = "<group>"; };
 		C0132B651752992000768231 /* tw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tw@2x.png"; sourceTree = "<group>"; };
+		C06C1C44175D49B90065B3B6 /* FacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookViewController.h; sourceTree = "<group>"; };
+		C06C1C45175D49B90065B3B6 /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookViewController.m; sourceTree = "<group>"; };
+		C06C1C4B175D53390065B3B6 /* FacebookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookCell.h; sourceTree = "<group>"; };
+		C06C1C4C175D53390065B3B6 /* FacebookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookCell.m; sourceTree = "<group>"; };
 		D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationView_iPhone.xib; sourceTree = "<group>"; };
 		D8C6D7A017491B9400D796A5 /* jyotr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jyotr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C6D7A317491B9400D796A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -169,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				2CFCDB051758EEEB00E18247 /* Profile */,
+				C06C1C4A175D53390065B3B6 /* Facebook */,
 				2CFCDB021758EED500E18247 /* BaseTableViewCell.h */,
 				2CFCDB031758EED500E18247 /* BaseTableViewCell.m */,
 			);
@@ -221,12 +228,13 @@
 		C0132B4E175298F100768231 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C0132B51175298F100768231 /* MainController.h */,
+				C0132B52175298F100768231 /* MainController.m */,
 				2CFCDAFF1758EE6F00E18247 /* BaseTableViewController.h */,
 				2CFCDB001758EE6F00E18247 /* BaseTableViewController.m */,
 				2CFCDAF41758EBAB00E18247 /* Authentication */,
 				2CFCDAF91758EBAB00E18247 /* Profile */,
-				C0132B51175298F100768231 /* MainController.h */,
-				C0132B52175298F100768231 /* MainController.m */,
+				C06C1C42175D495D0065B3B6 /* Facebook */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,6 +282,26 @@
 			);
 			path = Resources;
 			sourceTree = "<group>";
+		};
+		C06C1C42175D495D0065B3B6 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				C06C1C44175D49B90065B3B6 /* FacebookViewController.h */,
+				C06C1C45175D49B90065B3B6 /* FacebookViewController.m */,
+			);
+			name = Facebook;
+			path = jyotr/Classes/Controller/Facebook;
+			sourceTree = SOURCE_ROOT;
+		};
+		C06C1C4A175D53390065B3B6 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				C06C1C4B175D53390065B3B6 /* FacebookCell.h */,
+				C06C1C4C175D53390065B3B6 /* FacebookCell.m */,
+			);
+			name = Facebook;
+			path = jyotr/Classes/View/TableCell/Facebook;
+			sourceTree = SOURCE_ROOT;
 		};
 		D8C6D79717491B9400D796A5 = {
 			isa = PBXGroup;
@@ -509,6 +537,8 @@
 				2CFCDB041758EED500E18247 /* BaseTableViewCell.m in Sources */,
 				2CFCDB081758EEFE00E18247 /* ProfileTableViewCell.m in Sources */,
 				5A2FD714175A112E000936E1 /* SignOutViewController.m in Sources */,
+				C06C1C46175D49B90065B3B6 /* FacebookViewController.m in Sources */,
+				C06C1C4D175D53390065B3B6 /* FacebookCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,6 +30,27 @@
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[mainController getMainView]];
     [navVC setNavigationBarHidden:YES animated:YES];
     
+   
+    // Issue a Facebook Graph API request to get your user's friend list
+    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result will contain an array with your user's friends in the "data" key
+            NSArray *friendObjects = [result objectForKey:@"data"];
+            NSMutableArray *friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
+            // Create a list of friends' Facebook IDs
+            for (NSDictionary *friendObject in friendObjects) {
+                [friendIds addObject:[friendObject objectForKey:@"id"]];
+            }
+            NSLog(@"%@", friendObjects);
+            FacebookViewController *fbView = [[FacebookViewController alloc] initWithFriends:friendObjects];
+            [navVC pushViewController:fbView animated:YES];
+            [navVC setNavigationBarHidden:NO animated:YES];
+        }
+    }];
+    
+    
+
+    
     self.window.rootViewController = navVC;
     [self.window makeKeyAndVisible];
     return YES;

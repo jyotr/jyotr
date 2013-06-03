@@ -26,65 +26,92 @@
         NSLog(@"MAIN VIEW");
         SignOutViewController *signOutVC = [[SignOutViewController alloc] init];
         self.mainView = signOutVC;
-    } else {
-        if (true/*!currentUser*/) {
-            NSLog(@"LogInViewController");
-            LogInViewController *logInController =[[LogInViewController alloc] initWithNibName:@"LoginView_iPhone" bundle:nil];
-            self.mainView = logInController;
-        } else {
-            NSLog(@"logged in user");
-            // Send request to Facebook
-            FBRequest *request = [FBRequest requestForMe];
-            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                // handle response
-                NSMutableDictionary *userProfile = [NSMutableDictionary dictionaryWithCapacity:7];
+        
+        NSLog(@"logged in user");
+        // Send request to Facebook
+        FBRequest *request = [FBRequest requestForMe];
+        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            // handle response
+            NSMutableDictionary *userProfile = [NSMutableDictionary dictionaryWithCapacity:7];
+            
+            if (!error) {
                 
-                if (!error) {
-                    // Parse the data received
-                    NSDictionary *userData = (NSDictionary *)result;
-                    NSString *facebookID = userData[@"id"];
-                    NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
-                    
-                    if (facebookID) {
-                        userProfile[@"facebookId"] = facebookID;
-                    }
-                    
-                    if (userData[@"name"]) {
-                        userProfile[@"name"] = userData[@"name"];
-                    }
-                    
-                    if (userData[@"location"][@"name"]) {
-                        userProfile[@"location"] = userData[@"location"][@"name"];
-                    }
-                    
-                    if (userData[@"gender"]) {
-                        userProfile[@"gender"] = userData[@"gender"];
-                    }
-                    
-                    if (userData[@"birthday"]) {
-                        userProfile[@"birthday"] = userData[@"birthday"];
-                    }
-                    
-                    if (userData[@"relationship_status"]) {
-                        userProfile[@"relationship"] = userData[@"relationship_status"];
-                    }
-                    
-                    if ([pictureURL absoluteString]) {
-                        userProfile[@"pictureURL"] = [pictureURL absoluteString];
-                    }
-                    
-                    [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
-                    [[PFUser currentUser] saveInBackground];
-                    
-                } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
-                            isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
-                    NSLog(@"The facebook session was invalidated");
-                } else {
-                    NSLog(@"Some other error: %@", error);
+                
+                //Link Parse user with Facebook account
+                if (![PFFacebookUtils isLinkedWithUser:currentUser]) {
+                    [PFFacebookUtils linkUser:currentUser permissions:nil block:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            NSLog(@"Woohoo, user is linked with Facebook!");
+                        }
+                    }];
                 }
-                NSLog(@"%@", userProfile);
-            }];
-        }
+                
+                
+                // Parse the data received
+                NSDictionary *userData = (NSDictionary *)result;
+                NSString *facebookID = userData[@"id"];
+                NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+                
+                if (facebookID) {
+                    userProfile[@"facebookId"] = facebookID;
+                }
+                
+                if (userData[@"name"]) {
+                    userProfile[@"name"] = userData[@"name"];
+                }
+                
+                if (userData[@"location"][@"name"]) {
+                    userProfile[@"location"] = userData[@"location"][@"name"];
+                }
+                
+                if (userData[@"gender"]) {
+                    userProfile[@"gender"] = userData[@"gender"];
+                }
+                
+                if (userData[@"birthday"]) {
+                    userProfile[@"birthday"] = userData[@"birthday"];
+                }
+                
+                if (userData[@"relationship_status"]) {
+                    userProfile[@"relationship"] = userData[@"relationship_status"];
+                }
+                
+                if ([pictureURL absoluteString]) {
+                    userProfile[@"pictureURL"] = [pictureURL absoluteString];
+                }
+                
+                [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
+                [[PFUser currentUser] saveInBackground];
+                                
+                
+                
+                //Get publish permissions                
+                [PFFacebookUtils reauthorizeUser:currentUser
+                                 withPublishPermissions:@[@"publish_stream"]
+                                        audience:FBSessionDefaultAudienceFriends
+                                           block:^(BOOL succeeded, NSError *error) {
+                                               if (succeeded) {
+                                                   NSLog(@"reauthorizeUser: publish_stream");
+                                                   // Your app now has publishing permissions for the user
+                                               }
+                                           }];
+                
+            } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
+                        isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
+                NSLog(@"The facebook session was invalidated");
+            } else {
+                NSLog(@"Some other error: %@", error);
+            }
+            NSLog(@"%@", userProfile);
+        }];
+        
+        
+        
+        
+    } else {
+        NSLog(@"LogInViewController");
+        LogInViewController *logInController =[[LogInViewController alloc] initWithNibName:@"LoginView_iPhone" bundle:nil];
+        self.mainView = logInController;
     }
     return self.mainView;
 }

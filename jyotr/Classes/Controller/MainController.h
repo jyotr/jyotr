@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "LogInViewController.h"
 #import "SignOutViewController.h"
+#import "FacebookViewController.h"
 
 @interface MainController : NSObject <PFLogInViewControllerDelegate>
 
