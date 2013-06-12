@@ -157,6 +157,13 @@
                                     }];
 }
 
+- (IBAction)resetPasswordTouchHandler:(id)sender {
+    #warning Incomplete method implementation.
+    NSLog(@"reset password");
+    //check not empty before using
+    [PFUser requestPasswordResetForEmailInBackground:@"tolik.petrosyants@mail.ru"];
+}
+
 - (void)dismissKeyboard{
     [self.userNameField resignFirstResponder];
     [self.loginPasswordField resignFirstResponder];

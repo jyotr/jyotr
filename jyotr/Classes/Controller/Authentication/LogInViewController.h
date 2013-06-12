@@ -19,5 +19,6 @@
 - (IBAction)loginTwitterButtonTouchHandler:(id)sender;
 - (IBAction)registrationButtonTouchHandler:(id)sender;
 - (IBAction)loginButtonTouchHandler:(id)sender;
+- (IBAction)resetPasswordTouchHandler:(id)sender;
 
 @end
