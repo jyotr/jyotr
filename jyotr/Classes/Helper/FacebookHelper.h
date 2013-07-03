@@ -26,7 +26,7 @@ typedef void(^FacebookHelperCallback)(BOOL success, id result);
 @property (nonatomic) NSArray* friendsArray;
 
 + (FacebookHelper *) sharedInstance;
-+ (void)graphApi:(NSString *)graphPath;
++ (void)graphApi:(NSString *)graphPath withNotifier:(NSString *)notify;
 
 #pragma mark - Public Methods
 // Public methods here.

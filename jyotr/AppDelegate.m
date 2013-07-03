@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "LogInViewController.h"
 #import "SignOutViewController.h"
+#import "HomeViewController.h"
 #import "FacebookHelper.h"
 
 @implementation AppDelegate
@@ -37,8 +38,8 @@
     
     if (currentUser && [PFFacebookUtils isLinkedWithUser:currentUser]) {
         NSLog(@"Logged in user");
-        SignOutViewController *signOutVC = [[SignOutViewController alloc] initWithNibName:@"SignoutView_iPhone" bundle:nil];
-        mainView = signOutVC;
+        HomeViewController *homeVC = [[HomeViewController alloc] initWithNibName:@"HomeView_iPhone" bundle:nil];
+        mainView = homeVC;
         
     } else {
         NSLog(@"Not Logged in");

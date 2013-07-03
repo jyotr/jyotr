@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "LogInViewController.h"
-#import "SignOutViewController.h"
+#import "HomeViewController.h"
 #import "FacebookHelper.h"
 
 @interface LogInViewController ()
@@ -36,8 +36,8 @@
 - (IBAction)loginFacebookButtonTouchHandler:(id)sender  {
     [[FacebookHelper sharedInstance] login];
     [[NSNotificationCenter defaultCenter] addObserverForName:@"fb_login" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        SignOutViewController *signOutVC = [[SignOutViewController alloc] init];
-        [self presentViewController:signOutVC animated:YES completion:^{}];
+        HomeViewController *homeVC = [[HomeViewController alloc] initWithNibName:@"HomeView_iPhone" bundle:nil];
+        [self presentViewController:homeVC animated:YES completion:^{}];
     }];
     
 }
@@ -67,8 +67,8 @@
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             NSLog(@"Do stuff after successful login.");
-                                            SignOutViewController *signOutVC = [[SignOutViewController alloc] init];
-                                            [self.navigationController pushViewController:signOutVC animated:YES];
+                                            HomeViewController *homeVC = [[HomeViewController alloc] initWithNibName:@"HomeView_iPhone" bundle:nil];
+                                            [self.navigationController pushViewController:homeVC animated:YES];
                                         } else {
                                             //NSLog(@"%@ -- ", error);
                                             UIAlertView *invalidLogin  = [[UIAlertView alloc] initWithTitle:nil

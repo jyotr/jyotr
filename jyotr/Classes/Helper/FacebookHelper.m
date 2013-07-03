@@ -157,13 +157,17 @@ static FacebookHelper *singletonDelegate = nil;
     return userProfile;
 }
 
-+(void)graphApi:(NSString *)graphPath {
++(void)graphApi:(NSString *)graphPath withNotifier:(NSString *)notify {
     NSLog(@"starting request with path: %@", graphPath);
 //    NSMutableDictionary *params
+    
     FBRequest *request = [FBRequest requestForGraphPath:graphPath];
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if(!error) {
             NSLog(@"request completed to graph API: %@, with result: %@", graphPath, result);
+            if(notify){
+                [[NSNotificationCenter defaultCenter] postNotificationName:notify object:result];
+            }
         }
         
     }];

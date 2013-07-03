@@ -44,7 +44,7 @@
 }
 
 - (IBAction)getGraph:(id)sender {
-    [FacebookHelper graphApi:self.graphPath.text];
+    
 }
 - (void)viewDidUnload {
     [self setGraphPath:nil];

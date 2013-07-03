@@ -79,8 +79,8 @@
     cell.textLabel.text = [object objectForKey:@"name"];
     cell.detailTextLabel.text = [object objectForKey:@"username"];
     
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:pictureURL]];
-    [cell.imageView setImage:image];
+//    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:pictureURL]];
+//    [cell.imageView setImage:image];
     
 //	if(object.imageURL != nil)
 //    {
