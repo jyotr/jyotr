@@ -10,7 +10,6 @@
 
 @interface FacebookViewController : BaseTableViewController
 
-- (id)initWithFriends:(NSArray *)friends;
 
 @property(nonatomic, retain) NSArray *friends;
 

@@ -11,5 +11,7 @@
 
 @interface SignOutViewController : UIViewController
 - (IBAction)signOut:(id)sender;
+- (IBAction)getGraph:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *graphPath;
 
 @end

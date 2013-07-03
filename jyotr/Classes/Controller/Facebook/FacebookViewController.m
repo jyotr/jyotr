@@ -15,14 +15,6 @@
 
 @implementation FacebookViewController
 
-
-- (id)initWithFriends:(NSArray *)friends
-{
-    _friends = friends;
-    return self;
-}
-
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -35,7 +27,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close)];
+    self.navigationItem.rightBarButtonItem = closeButton;
+    
 	// Do any additional setup after loading the view.
+}
+
+-(void)close{
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        //code
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,14 +50,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.friends count];
 }
@@ -80,8 +79,8 @@
     cell.textLabel.text = [object objectForKey:@"name"];
     cell.detailTextLabel.text = [object objectForKey:@"username"];
     
-//    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:pictureURL]];
-//    [cell.imageView setImage:image];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:pictureURL]];
+    [cell.imageView setImage:image];
     
 //	if(object.imageURL != nil)
 //    {

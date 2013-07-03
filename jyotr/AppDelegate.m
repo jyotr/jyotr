@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import "MainController.h"
+#import "LogInViewController.h"
+#import "SignOutViewController.h"
+#import "FacebookHelper.h"
 
 @implementation AppDelegate
 
@@ -25,32 +27,27 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
     // Override point for customization after application launch.
-    MainController *mainController = [[MainController alloc] init];
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[mainController getMainView]];
-    [navVC setNavigationBarHidden:YES animated:YES];
+    NSLog(@"AppDelegate View Init");
+    UIViewController *mainView;
+    PFUser *currentUser = [PFUser currentUser];
+    NSLog(@"currentUser: %@", currentUser);
     
-   
-    // Issue a Facebook Graph API request to get your user's friend list
-    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error) {
-            // result will contain an array with your user's friends in the "data" key
-            NSArray *friendObjects = [result objectForKey:@"data"];
-            NSMutableArray *friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
-            // Create a list of friends' Facebook IDs
-            for (NSDictionary *friendObject in friendObjects) {
-                [friendIds addObject:[friendObject objectForKey:@"id"]];
-            }
-            NSLog(@"%@", friendObjects);
-            FacebookViewController *fbView = [[FacebookViewController alloc] initWithFriends:friendObjects];
-            [navVC pushViewController:fbView animated:YES];
-            [navVC setNavigationBarHidden:NO animated:YES];
-        }
-    }];
+    if (currentUser && [PFFacebookUtils isLinkedWithUser:currentUser]) {
+        NSLog(@"Logged in user");
+        SignOutViewController *signOutVC = [[SignOutViewController alloc] initWithNibName:@"SignoutView_iPhone" bundle:nil];
+        mainView = signOutVC;
+        
+    } else {
+        NSLog(@"Not Logged in");
+        LogInViewController *logInVC =[[LogInViewController alloc] initWithNibName:@"LoginView_iPhone" bundle:nil];
+        mainView = logInVC;
+    }
     
-    
-
-    
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainView];
+    [navVC setNavigationBarHidden:YES animated:NO];
     self.window.rootViewController = navVC;
     [self.window makeKeyAndVisible];
     return YES;
@@ -64,6 +61,7 @@
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [PFFacebookUtils handleOpenURL:url];
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

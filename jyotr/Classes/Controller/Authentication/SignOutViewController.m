@@ -7,6 +7,7 @@
 //
 
 #import "SignOutViewController.h"
+#import "FacebookHelper.h"
 
 @interface SignOutViewController ()
 
@@ -40,5 +41,13 @@
     //PFUser *currentUser = [PFUser currentUser];
     //NSLog(@"sign out -- %@",currentUser);
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)getGraph:(id)sender {
+    [FacebookHelper graphApi:self.graphPath.text];
+}
+- (void)viewDidUnload {
+    [self setGraphPath:nil];
+    [super viewDidUnload];
 }
 @end
