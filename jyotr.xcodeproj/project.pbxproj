@@ -13,7 +13,6 @@
 		2CFCDB011758EE6F00E18247 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDB001758EE6F00E18247 /* BaseTableViewController.m */; };
 		2CFCDB041758EED500E18247 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDB031758EED500E18247 /* BaseTableViewCell.m */; };
 		2CFCDB081758EEFE00E18247 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCDB071758EEFE00E18247 /* ProfileTableViewCell.m */; };
-		5A2FD714175A112E000936E1 /* SignOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2FD712175A112E000936E1 /* SignOutViewController.m */; };
 		C005AFFC17557003002BDF6E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C005AFFB17557003002BDF6E /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C005AFFE1755700A002BDF6E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C005AFFD1755700A002BDF6E /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C005B00017557019002BDF6E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C005AFFF17557019002BDF6E /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -55,7 +54,8 @@
 		D8C6D80417492D3300D796A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D80317492D3300D796A5 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D8C6D80617492D3700D796A5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D80517492D3700D796A5 /* StoreKit.framework */; };
 		D8C6D80817492D3D00D796A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C6D80717492D3D00D796A5 /* SystemConfiguration.framework */; };
-		D8F45FCE1784279D008175FC /* SignoutView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F45FCD1784279D008175FC /* SignoutView_iPhone.xib */; };
+		D8D92F211795206E00859DEA /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D92F1F1795206E00859DEA /* StartViewController.m */; };
+		D8D92F241795209D00859DEA /* StartView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D92F231795209D00859DEA /* StartView_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,8 +81,6 @@
 		2CFCDB031758EED500E18247 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		2CFCDB061758EEFE00E18247 /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
 		2CFCDB071758EEFE00E18247 /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
-		5A2FD711175A112E000936E1 /* SignOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignOutViewController.h; sourceTree = "<group>"; };
-		5A2FD712175A112E000936E1 /* SignOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignOutViewController.m; sourceTree = "<group>"; };
 		C005AFFB17557003002BDF6E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C005AFFD1755700A002BDF6E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		C005AFFF17557019002BDF6E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -134,7 +132,9 @@
 		D8C6D80317492D3300D796A5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D8C6D80517492D3700D796A5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D8C6D80717492D3D00D796A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D8F45FCD1784279D008175FC /* SignoutView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignoutView_iPhone.xib; sourceTree = "<group>"; };
+		D8D92F1E1795206E00859DEA /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		D8D92F1F1795206E00859DEA /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		D8D92F231795209D00859DEA /* StartView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartView_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,8 +194,6 @@
 				2CFCDAF61758EBAB00E18247 /* LogInViewController.m */,
 				2CFCDAF71758EBAB00E18247 /* RegistrationViewController.h */,
 				2CFCDAF81758EBAB00E18247 /* RegistrationViewController.m */,
-				5A2FD711175A112E000936E1 /* SignOutViewController.h */,
-				5A2FD712175A112E000936E1 /* SignOutViewController.m */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -233,6 +231,8 @@
 		C0132B4E175298F100768231 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D8D92F1E1795206E00859DEA /* StartViewController.h */,
+				D8D92F1F1795206E00859DEA /* StartViewController.m */,
 				D8C533A617845BC800897568 /* HomeViewController.h */,
 				D8C533A717845BC800897568 /* HomeViewController.m */,
 				2CFCDAFF1758EE6F00E18247 /* BaseTableViewController.h */,
@@ -400,8 +400,8 @@
 		D8C6D7E417491C7600D796A5 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				D8D92F231795209D00859DEA /* StartView_iPhone.xib */,
 				D8C533AB17845BE500897568 /* HomeView_iPhone.xib */,
-				D8F45FCD1784279D008175FC /* SignoutView_iPhone.xib */,
 				C005B003175572D3002BDF6E /* LoginView_iPhone.xib */,
 				D8251984174A2FBA00A36A65 /* RegistrationView_iPhone.xib */,
 			);
@@ -499,8 +499,8 @@
 				C0132B6B1752992000768231 /* tw@2x.png in Resources */,
 				C005B004175572D3002BDF6E /* LoginView_iPhone.xib in Resources */,
 				D86BBB471782EC830097524E /* FacebookSDKResources.bundle in Resources */,
-				D8F45FCE1784279D008175FC /* SignoutView_iPhone.xib in Resources */,
 				D8C533AC17845BE500897568 /* HomeView_iPhone.xib in Resources */,
+				D8D92F241795209D00859DEA /* StartView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,11 +544,11 @@
 				2CFCDB011758EE6F00E18247 /* BaseTableViewController.m in Sources */,
 				2CFCDB041758EED500E18247 /* BaseTableViewCell.m in Sources */,
 				2CFCDB081758EEFE00E18247 /* ProfileTableViewCell.m in Sources */,
-				5A2FD714175A112E000936E1 /* SignOutViewController.m in Sources */,
 				C06C1C46175D49B90065B3B6 /* FacebookViewController.m in Sources */,
 				C06C1C4D175D53390065B3B6 /* FacebookCell.m in Sources */,
 				D89D1525175DF14800413F52 /* FacebookHelper.m in Sources */,
 				D8C533A917845BC900897568 /* HomeViewController.m in Sources */,
+				D8D92F211795206E00859DEA /* StartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

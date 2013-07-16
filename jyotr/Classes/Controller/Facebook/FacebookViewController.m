@@ -27,16 +27,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	// Do any additional setup after loading the view.
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close)];
     self.navigationItem.rightBarButtonItem = closeButton;
+    self.navigationItem.backBarButtonItem = nil;
     
-	// Do any additional setup after loading the view.
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+
 }
 
 -(void)close{
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        //code
-    }];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +69,7 @@
     
     if (cell == nil) {
         NSLog(@"cell == nil");
-        cell = [[FacebookCell alloc] init];
+        cell = [[FacebookCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell.
