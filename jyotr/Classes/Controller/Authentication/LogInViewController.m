@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.userNameField.delegate = self;
+    self.loginPasswordField.delegate = self;
 }
 
 /* Login to facebook method */
@@ -37,7 +39,7 @@
     [[FacebookHelper sharedInstance] login];
     [[NSNotificationCenter defaultCenter] addObserverForName:@"fb_login" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         HomeViewController *homeVC = [[HomeViewController alloc] initWithNibName:@"HomeView_iPhone" bundle:nil];
-        [self presentViewController:homeVC animated:YES completion:^{}];
+        [self.navigationController pushViewController:homeVC animated:YES];
     }];
     
 }
@@ -87,6 +89,28 @@
     //check not empty before using
     [PFUser requestPasswordResetForEmailInBackground:@"tolik.petrosyants@mail.ru"];
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *) event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.userNameField isFirstResponder] && (self.userNameField != touch.view))
+    {
+        // textField1 lost focus
+        [self.userNameField resignFirstResponder];
+    }
+    
+    if ([self.loginPasswordField isFirstResponder] && (self.loginPasswordField != touch.view))
+    {
+        // textField2 lost focus
+        [self.loginPasswordField resignFirstResponder];
+    }
+}
+
 
 - (void)dismissKeyboard{
     [self.userNameField resignFirstResponder];

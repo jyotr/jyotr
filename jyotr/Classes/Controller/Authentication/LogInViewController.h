@@ -9,7 +9,7 @@
 #import <Parse/Parse.h>
 #import "RegistrationViewController.h"
 
-@interface LogInViewController : UIViewController
+@interface LogInViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
 @property (weak, nonatomic) IBOutlet UITextField *loginPasswordField;

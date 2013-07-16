@@ -7,8 +7,8 @@
 //
 
 #import "RegistrationViewController.h"
+#import "HomeViewController.h"
 #import <Parse/PFUser.h>
-#import "SignOutViewController.h"
 
 @interface RegistrationViewController ()
 
@@ -29,6 +29,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.nameField.delegate = self;
+    self.emailField.delegate = self;
+    self.passwordField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,8 +61,8 @@
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"Hooray! Let them use the app now.");
-            SignOutViewController *signOutVC = [[SignOutViewController alloc] init];
-            [self.navigationController pushViewController:signOutVC animated:YES];
+            HomeViewController *homeVC = [[HomeViewController alloc] init];
+            [self.navigationController pushViewController:homeVC animated:YES];
         } else {
             //NSLog(@"%@ -- ", error);
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -75,6 +78,11 @@
 
 - (IBAction)closeButtonTouchHandler:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (IBAction)dismissKeyboard:(id)sender{

@@ -15,7 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *graphPath;
 
 - (IBAction)getGraph:(id)sender;
-- (IBAction)friends:(id)sender;
-- (IBAction)signout:(id)sender;
+- (IBAction)getFriends:(id)sender;
+- (IBAction)signoutBtnHandler:(id)sender;
+- (IBAction)profileBtnHandler:(id)sender;
 
 @end
