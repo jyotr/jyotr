@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C95229117AC0A3E00347EBB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C95229017AC0A3E00347EBB /* UIKit.framework */; };
+		2C95229317AC0A3E00347EBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C95229217AC0A3E00347EBB /* Foundation.framework */; };
+		2C95229517AC0A3E00347EBB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C95229417AC0A3E00347EBB /* CoreGraphics.framework */; };
+		2C95229B17AC0A3E00347EBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C95229917AC0A3E00347EBB /* InfoPlist.strings */; };
+		2C95229D17AC0A3E00347EBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C95229C17AC0A3E00347EBB /* main.m */; };
+		2C9522A117AC0A3E00347EBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522A017AC0A3E00347EBB /* AppDelegate.m */; };
+		2C9522A317AC0A3E00347EBB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9522A217AC0A3E00347EBB /* Default.png */; };
+		2C9522A517AC0A3E00347EBB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9522A417AC0A3E00347EBB /* Default@2x.png */; };
+		2C9522A717AC0A3E00347EBB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9522A617AC0A3E00347EBB /* Default-568h@2x.png */; };
+		2C9522B517AC0A6F00347EBB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522B417AC0A6F00347EBB /* MainViewController.m */; };
+		2C9522B817AC0AA500347EBB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522B717AC0AA500347EBB /* LoginViewController.m */; };
+		2C9522BD17AC0AE100347EBB /* UINavigationController+Fade.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522BA17AC0AE100347EBB /* UINavigationController+Fade.m */; };
+		2C9522BE17AC0AE100347EBB /* UINavigationControllerFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522BC17AC0AE100347EBB /* UINavigationControllerFade.m */; };
+		2C9522C017AC0B3400347EBB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9522BF17AC0B3400347EBB /* QuartzCore.framework */; };
+		2C9522C417AC0F4200347EBB /* GenericBubbleCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522C317AC0F4200347EBB /* GenericBubbleCircle.m */; };
+		2C9522C717AC23E300347EBB /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522C617AC23E300347EBB /* UIButton+Glossy.m */; };
+		2C9522C917AC256800347EBB /* Knewave-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C9522C817AC256800347EBB /* Knewave-Regular.ttf */; };
+		2C9522CB17AC296800347EBB /* desyrel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C9522CA17AC296800347EBB /* desyrel.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C95228D17AC0A3E00347EBB /* Jyoter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jyoter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C95229017AC0A3E00347EBB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2C95229217AC0A3E00347EBB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2C95229417AC0A3E00347EBB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2C95229817AC0A3E00347EBB /* Jyoter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Jyoter-Info.plist"; sourceTree = "<group>"; };
+		2C95229A17AC0A3E00347EBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2C95229C17AC0A3E00347EBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2C95229E17AC0A3E00347EBB /* Jyoter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jyoter-Prefix.pch"; sourceTree = "<group>"; };
+		2C95229F17AC0A3E00347EBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2C9522A017AC0A3E00347EBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2C9522A217AC0A3E00347EBB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		2C9522A417AC0A3E00347EBB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		2C9522A617AC0A3E00347EBB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2C9522B317AC0A6F00347EBB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		2C9522B417AC0A6F00347EBB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2C9522B617AC0AA500347EBB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2C9522B717AC0AA500347EBB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2C9522B917AC0AE100347EBB /* UINavigationController+Fade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Fade.h"; sourceTree = "<group>"; };
+		2C9522BA17AC0AE100347EBB /* UINavigationController+Fade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Fade.m"; sourceTree = "<group>"; };
+		2C9522BB17AC0AE100347EBB /* UINavigationControllerFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerFade.h; sourceTree = "<group>"; };
+		2C9522BC17AC0AE100347EBB /* UINavigationControllerFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerFade.m; sourceTree = "<group>"; };
+		2C9522BF17AC0B3400347EBB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2C9522C217AC0F4200347EBB /* GenericBubbleCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericBubbleCircle.h; sourceTree = "<group>"; };
+		2C9522C317AC0F4200347EBB /* GenericBubbleCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericBubbleCircle.m; sourceTree = "<group>"; };
+		2C9522C517AC23E300347EBB /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
+		2C9522C617AC23E300347EBB /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
+		2C9522C817AC256800347EBB /* Knewave-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knewave-Regular.ttf"; sourceTree = "<group>"; };
+		2C9522CA17AC296800347EBB /* desyrel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = desyrel.ttf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C95228A17AC0A3E00347EBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C9522C017AC0B3400347EBB /* QuartzCore.framework in Frameworks */,
+				2C95229117AC0A3E00347EBB /* UIKit.framework in Frameworks */,
+				2C95229317AC0A3E00347EBB /* Foundation.framework in Frameworks */,
+				2C95229517AC0A3E00347EBB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C95228417AC0A3E00347EBB = {
+			isa = PBXGroup;
+			children = (
+				2C9522BF17AC0B3400347EBB /* QuartzCore.framework */,
+				2C95229617AC0A3E00347EBB /* Jyoter */,
+				2C95228F17AC0A3E00347EBB /* Frameworks */,
+				2C95228E17AC0A3E00347EBB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C95228E17AC0A3E00347EBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C95228D17AC0A3E00347EBB /* Jyoter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C95228F17AC0A3E00347EBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C95229017AC0A3E00347EBB /* UIKit.framework */,
+				2C95229217AC0A3E00347EBB /* Foundation.framework */,
+				2C95229417AC0A3E00347EBB /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C95229617AC0A3E00347EBB /* Jyoter */ = {
+			isa = PBXGroup;
+			children = (
+				2C9522C117AC0F0700347EBB /* bubbleCircles */,
+				2C9522B917AC0AE100347EBB /* UINavigationController+Fade.h */,
+				2C9522BA17AC0AE100347EBB /* UINavigationController+Fade.m */,
+				2C9522BB17AC0AE100347EBB /* UINavigationControllerFade.h */,
+				2C9522BC17AC0AE100347EBB /* UINavigationControllerFade.m */,
+				2C95229F17AC0A3E00347EBB /* AppDelegate.h */,
+				2C9522A017AC0A3E00347EBB /* AppDelegate.m */,
+				2C9522B317AC0A6F00347EBB /* MainViewController.h */,
+				2C9522B417AC0A6F00347EBB /* MainViewController.m */,
+				2C95229717AC0A3E00347EBB /* Supporting Files */,
+				2C9522B617AC0AA500347EBB /* LoginViewController.h */,
+				2C9522B717AC0AA500347EBB /* LoginViewController.m */,
+			);
+			path = Jyoter;
+			sourceTree = "<group>";
+		};
+		2C95229717AC0A3E00347EBB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C9522CA17AC296800347EBB /* desyrel.ttf */,
+				2C9522C817AC256800347EBB /* Knewave-Regular.ttf */,
+				2C95229817AC0A3E00347EBB /* Jyoter-Info.plist */,
+				2C95229917AC0A3E00347EBB /* InfoPlist.strings */,
+				2C95229C17AC0A3E00347EBB /* main.m */,
+				2C95229E17AC0A3E00347EBB /* Jyoter-Prefix.pch */,
+				2C9522A217AC0A3E00347EBB /* Default.png */,
+				2C9522A417AC0A3E00347EBB /* Default@2x.png */,
+				2C9522A617AC0A3E00347EBB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2C9522C117AC0F0700347EBB /* bubbleCircles */ = {
+			isa = PBXGroup;
+			children = (
+				2C9522C517AC23E300347EBB /* UIButton+Glossy.h */,
+				2C9522C617AC23E300347EBB /* UIButton+Glossy.m */,
+				2C9522C217AC0F4200347EBB /* GenericBubbleCircle.h */,
+				2C9522C317AC0F4200347EBB /* GenericBubbleCircle.m */,
+			);
+			path = bubbleCircles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C95228C17AC0A3E00347EBB /* Jyoter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C9522B017AC0A3E00347EBB /* Build configuration list for PBXNativeTarget "Jyoter" */;
+			buildPhases = (
+				2C95228917AC0A3E00347EBB /* Sources */,
+				2C95228A17AC0A3E00347EBB /* Frameworks */,
+				2C95228B17AC0A3E00347EBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Jyoter;
+			productName = Jyoter;
+			productReference = 2C95228D17AC0A3E00347EBB /* Jyoter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C95228517AC0A3E00347EBB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Jyoter;
+			};
+			buildConfigurationList = 2C95228817AC0A3E00347EBB /* Build configuration list for PBXProject "Jyoter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2C95228417AC0A3E00347EBB;
+			productRefGroup = 2C95228E17AC0A3E00347EBB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C95228C17AC0A3E00347EBB /* Jyoter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C95228B17AC0A3E00347EBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C95229B17AC0A3E00347EBB /* InfoPlist.strings in Resources */,
+				2C9522A317AC0A3E00347EBB /* Default.png in Resources */,
+				2C9522A517AC0A3E00347EBB /* Default@2x.png in Resources */,
+				2C9522A717AC0A3E00347EBB /* Default-568h@2x.png in Resources */,
+				2C9522C917AC256800347EBB /* Knewave-Regular.ttf in Resources */,
+				2C9522CB17AC296800347EBB /* desyrel.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C95228917AC0A3E00347EBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C95229D17AC0A3E00347EBB /* main.m in Sources */,
+				2C9522A117AC0A3E00347EBB /* AppDelegate.m in Sources */,
+				2C9522B517AC0A6F00347EBB /* MainViewController.m in Sources */,
+				2C9522B817AC0AA500347EBB /* LoginViewController.m in Sources */,
+				2C9522BD17AC0AE100347EBB /* UINavigationController+Fade.m in Sources */,
+				2C9522BE17AC0AE100347EBB /* UINavigationControllerFade.m in Sources */,
+				2C9522C417AC0F4200347EBB /* GenericBubbleCircle.m in Sources */,
+				2C9522C717AC23E300347EBB /* UIButton+Glossy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2C95229917AC0A3E00347EBB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C95229A17AC0A3E00347EBB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C9522AE17AC0A3E00347EBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2C9522AF17AC0A3E00347EBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C9522B117AC0A3E00347EBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Jyoter/Jyoter-Prefix.pch";
+				INFOPLIST_FILE = "Jyoter/Jyoter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2C9522B217AC0A3E00347EBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Jyoter/Jyoter-Prefix.pch";
+				INFOPLIST_FILE = "Jyoter/Jyoter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C95228817AC0A3E00347EBB /* Build configuration list for PBXProject "Jyoter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C9522AE17AC0A3E00347EBB /* Debug */,
+				2C9522AF17AC0A3E00347EBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C9522B017AC0A3E00347EBB /* Build configuration list for PBXNativeTarget "Jyoter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C9522B117AC0A3E00347EBB /* Debug */,
+				2C9522B217AC0A3E00347EBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2C95228517AC0A3E00347EBB /* Project object */;
+}
