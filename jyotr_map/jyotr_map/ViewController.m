@@ -15,6 +15,9 @@
 
 @implementation ViewController {
     CLLocationManager *locationManager;
+    UIView *geocoderView;
+    UILabel *addressLabel;
+    int markerCount;
 }
 
 - (void)viewDidLoad
@@ -88,7 +91,24 @@
     [datePicker setDate:[NSDate date] animated:YES];
     
     [self.view addSubview:datePicker];
-
+    
+    geocoderView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, 320, 50)];
+    geocoderView.backgroundColor = [UIColor grayColor];
+//    geocoderView.alpha = 0.7;
+    
+    addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 320, 50)];
+    addressLabel.backgroundColor = [UIColor clearColor];
+    addressLabel.textColor = [UIColor whiteColor];
+    
+    addressLabel.font = [UIFont systemFontOfSize:13.0f];
+    addressLabel.numberOfLines = 2;
+    addressLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    addressLabel.text = @"";
+    [geocoderView addSubview:addressLabel];
+    
+    [self.view addSubview:geocoderView];
+    markerCount = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,13 +121,7 @@
 
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
-    [self.googleMapView animateToViewingAngle:45];
-    GMSCameraPosition *fancy = [GMSCameraPosition cameraWithLatitude:-33.8683
-                                                           longitude:151.2086
-                                                                zoom:16
-                                                             bearing:30
-                                                        viewingAngle:45];
-    [self.googleMapView setCamera:fancy];
+    [self createMarkerWithCoordinates:coordinate];
 }
 
 - (void)mapView:(GMSMapView *)mapView willMove:(BOOL)gesture {
@@ -149,19 +163,38 @@
 }
 
 -(void)createMarkerWithCoordinates:(CLLocationCoordinate2D)coordinate {
-    [self drawCircleWithCenter:coordinate andRadius:1000];
-    
+//    [self drawCircleWithCenter:coordinate andRadius:100];
+    [self.googleMapView clear];
     id handler = ^(GMSReverseGeocodeResponse *response, NSError *error) {
         if (error == nil) {
             GMSReverseGeocodeResult *result = response.firstResult;
+            NSLog(@"result.addressLine1 %@", result.addressLine1);
+            NSLog(@"result.addressLine2 %@", result.addressLine2);
+            addressLabel.text = result.addressLine1;
             GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
             marker.title = result.addressLine1;
-            marker.snippet = @"Population: 3,174,100";
+            marker.snippet = result.addressLine2;
             marker.animated = YES;
-            marker.icon = [GMSMarker markerImageWithColor:[UIColor orangeColor]];
-            //london.icon = [UIImage imageNamed:@"house"];
+//            marker.icon = [GMSMarker markerImageWithColor:[UIColor whiteColor]];
+            markerCount++;
+            switch (markerCount) {
+                case 1:
+                    marker.icon = [UIImage imageNamed:@"marker_blue.png"];
+                    break;
+                case 2:
+                    marker.icon = [UIImage imageNamed:@"marker_green.png"];
+                    break;
+                case 3:
+                    marker.icon = [UIImage imageNamed:@"marker_pink.png"];
+                    markerCount = 0;
+                    break;
+                    
+                default:
+                    break;
+            }
             
-            marker.infoWindowAnchor = CGPointMake(0.5, 0.5);
+            
+            marker.infoWindowAnchor = CGPointMake(0.5, 0.0);
             
             marker.map = self.googleMapView;
         }

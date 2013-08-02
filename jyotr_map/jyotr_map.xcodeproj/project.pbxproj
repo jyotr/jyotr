@@ -32,6 +32,12 @@
 		C0FAB89017AC5FFA008D7013 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FAB88E17AC5FFA008D7013 /* GoogleMaps.framework */; };
 		C0FAB89317AC61B8008D7013 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB89217AC61B8008D7013 /* GoogleMaps.bundle */; };
 		C0FAB89717AC6290008D7013 /* MWDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FAB89617AC6290008D7013 /* MWDatePicker.m */; };
+		C0FAB89C17AC6B73008D7013 /* marker_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB89917AC6B73008D7013 /* marker_blue.png */; };
+		C0FAB89D17AC6B73008D7013 /* marker_green.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB89A17AC6B73008D7013 /* marker_green.png */; };
+		C0FAB89E17AC6B73008D7013 /* marker_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB89B17AC6B73008D7013 /* marker_pink.png */; };
+		C0FAB8A217AC6C19008D7013 /* marker_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB89F17AC6C19008D7013 /* marker_blue@2x.png */; };
+		C0FAB8A317AC6C19008D7013 /* marker_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB8A017AC6C19008D7013 /* marker_green@2x.png */; };
+		C0FAB8A417AC6C19008D7013 /* marker_pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB8A117AC6C19008D7013 /* marker_pink@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +72,12 @@
 		C0FAB89217AC61B8008D7013 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		C0FAB89517AC6290008D7013 /* MWDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWDatePicker.h; sourceTree = "<group>"; };
 		C0FAB89617AC6290008D7013 /* MWDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWDatePicker.m; sourceTree = "<group>"; };
+		C0FAB89917AC6B73008D7013 /* marker_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_blue.png; sourceTree = "<group>"; };
+		C0FAB89A17AC6B73008D7013 /* marker_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_green.png; sourceTree = "<group>"; };
+		C0FAB89B17AC6B73008D7013 /* marker_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_pink.png; sourceTree = "<group>"; };
+		C0FAB89F17AC6C19008D7013 /* marker_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker_blue@2x.png"; sourceTree = "<group>"; };
+		C0FAB8A017AC6C19008D7013 /* marker_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker_green@2x.png"; sourceTree = "<group>"; };
+		C0FAB8A117AC6C19008D7013 /* marker_pink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker_pink@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +150,7 @@
 		C0FAB85817AC5FB6008D7013 /* jyotr_map */ = {
 			isa = PBXGroup;
 			children = (
+				C0FAB89817AC6B6B008D7013 /* assets */,
 				C0FAB89417AC6290008D7013 /* MWDatePicker */,
 				C0FAB86117AC5FB6008D7013 /* AppDelegate.h */,
 				C0FAB86217AC5FB6008D7013 /* AppDelegate.m */,
@@ -178,6 +191,19 @@
 				C0FAB89617AC6290008D7013 /* MWDatePicker.m */,
 			);
 			path = MWDatePicker;
+			sourceTree = "<group>";
+		};
+		C0FAB89817AC6B6B008D7013 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				C0FAB89F17AC6C19008D7013 /* marker_blue@2x.png */,
+				C0FAB8A017AC6C19008D7013 /* marker_green@2x.png */,
+				C0FAB8A117AC6C19008D7013 /* marker_pink@2x.png */,
+				C0FAB89917AC6B73008D7013 /* marker_blue.png */,
+				C0FAB89A17AC6B73008D7013 /* marker_green.png */,
+				C0FAB89B17AC6B73008D7013 /* marker_pink.png */,
+			);
+			name = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +262,12 @@
 				C0FAB86717AC5FB6008D7013 /* Default@2x.png in Resources */,
 				C0FAB86917AC5FB6008D7013 /* Default-568h@2x.png in Resources */,
 				C0FAB89317AC61B8008D7013 /* GoogleMaps.bundle in Resources */,
+				C0FAB89C17AC6B73008D7013 /* marker_blue.png in Resources */,
+				C0FAB89D17AC6B73008D7013 /* marker_green.png in Resources */,
+				C0FAB89E17AC6B73008D7013 /* marker_pink.png in Resources */,
+				C0FAB8A217AC6C19008D7013 /* marker_blue@2x.png in Resources */,
+				C0FAB8A317AC6C19008D7013 /* marker_green@2x.png in Resources */,
+				C0FAB8A417AC6C19008D7013 /* marker_pink@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
