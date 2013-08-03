@@ -10,8 +10,35 @@
 #import "GenericBubbleCircle.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
-@interface MainViewController ()
+#define POS_PINK_LEFT 410
+#define POS_PINK_RIGHT 160
+
+#define POS_LILAC_LEFT -200
+#define POS_LILAC_RIGHT 80
+
+#define POS_GREEN_LEFT 400
+#define POS_GREEN_RIGHT 220
+
+#define POS_BLUE_LEFT 400
+#define POS_BLUE_RIGHT 265
+
+#define POS_ORANGE_LEFT -200
+#define POS_ORANGE_RIGHT 80
+
+@interface MainViewController () {
+    GenericBubbleCircle * pinkBubble;
+    GenericBubbleCircle * lilacBubble;
+    GenericBubbleCircle * blueBubble;
+    GenericBubbleCircle * greenBubble;
+    GenericBubbleCircle * orangeBubble;
+    BOOL pinkVisible;
+    BOOL lilacVisible;
+    BOOL blueVisible;
+    BOOL greenVisible;
+    BOOL orangeVisible;
+}
 
 @end
 
@@ -23,29 +50,111 @@
 
 - (void) loadView {
     [super loadView];
+    pinkVisible = YES;
+    lilacVisible = YES;
+    blueVisible = YES;
+    greenVisible = YES;
+    orangeVisible = YES;
     
     self.navigationController.navigationBar.tintColor = [UIColor lightGrayColor];
     self.view.frame = CGRectMake(0, 0, 320, 480);
     self.view.backgroundColor = [UIColor whiteColor];
     
-    GenericBubbleCircle * sirennevi = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(30, 280, 100, 100) withColor:[UIColor colorWithRed:205/255.0 green:97/255.0 blue:1.0 alpha:1.0] withRadius:50.0];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self action:@selector(animateBubbles) forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"Animate" forState:UIControlStateNormal];
+    button.frame = CGRectMake(80.0, 10.0, 160.0, 40.0);
     
-    GenericBubbleCircle * kaput = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(210, 240, 90, 90) withColor:[UIColor colorWithRed:79/255.0 green:188/255.0 blue:224/255.0 alpha:1.0] withRadius:45.0];//[UIColor redColor]];
+    [self.view addSubview:button];
     
-    GenericBubbleCircle * kanach = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(180, 310, 80, 80) withColor:[UIColor colorWithRed:76/255.0 green:199/255.0 blue:111/255.0 alpha:1.0] withRadius:40.0];
+    pinkBubble = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(POS_PINK_LEFT, 160, 160, 160) withColor: RGBA(255, 61, 97, 1.0) withRadius:80.0 withText:@"Create"];
     
-    GenericBubbleCircle * rozvi = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(80, 160, 160, 160) withColor:[UIColor colorWithRed:1.0 green:61/255.0 blue:97/255.0 alpha:1.0] withRadius:80.0];
+    lilacBubble = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(POS_LILAC_LEFT, 280, 100, 100) withColor: RGBA(205, 97, 255, 1.0) withRadius:50.0 withText:@"???"];
     
-    GenericBubbleCircle * orange = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(30, 100, 100, 100) withColor:[UIColor colorWithRed:252/255.0 green:103/255.0 blue:53/255.0 alpha:1.0] withRadius:50.0];
-
+    blueBubble = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(POS_BLUE_LEFT, 240, 90, 90) withColor: RGBA(79, 188, 224, 1.0) withRadius:45.0 withText:@"fb"];
     
-    [self.view addSubview:sirennevi];
-    [self.view addSubview:kaput];
-    [self.view addSubview:kanach];
-    [self.view addSubview:rozvi];
-    [self.view addSubview:orange];
+    greenBubble = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(POS_GREEN_LEFT, 310, 80, 80) withColor: RGBA(76, 199, 111, 1.0) withRadius:40.0 withText:@"Date"];
     
-    [self.view bringSubviewToFront:rozvi];
+    orangeBubble = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(POS_ORANGE_LEFT, 100, 100, 100) withColor: RGBA(252, 103, 53, 1.0) withRadius:50.0 withText:@"Profile"];
+    
+    [self.view addSubview: pinkBubble];
+    [self.view addSubview: lilacBubble];
+    [self.view addSubview: blueBubble];
+    [self.view addSubview: greenBubble];
+    [self.view addSubview: orangeBubble];
+    
+    [self.view bringSubviewToFront: pinkBubble];
+    
+    [self animateBubbles];
 }
+
+- (void) animateBubbles {
+    [self animatePinkBubble];
+    [self animateLilacBubble];
+    [self animateGreenBubble];
+    [self animateBlueBubble];
+    [self animateOrangeBubble];
+}
+
+- (void) animatePinkBubble {
+    NSValue * from = [NSNumber numberWithFloat:pinkBubble.layer.position.x];
+    NSValue * to = pinkVisible ? [NSNumber numberWithFloat:POS_PINK_RIGHT] : [NSNumber numberWithFloat:POS_PINK_LEFT];
+    NSString * keypath = @"position.x";
+    [pinkBubble.layer addAnimation:[self bounceAnimationFrom:from to:to forKeyPath:keypath withDuration:.8] forKey:@"bounce"];
+    [pinkBubble.layer setValue:to forKeyPath:keypath];
+    pinkVisible = !pinkVisible;
+}
+
+- (void) animateLilacBubble {
+    NSValue * from = [NSNumber numberWithFloat:lilacBubble.layer.position.x];
+    NSValue * to = lilacVisible ? [NSNumber numberWithFloat:POS_LILAC_RIGHT] : [NSNumber numberWithFloat:POS_LILAC_LEFT];
+    NSString * keypath = @"position.x";
+    [lilacBubble.layer addAnimation:[self bounceAnimationFrom:from to:to forKeyPath:keypath withDuration:.8] forKey:@"bounce"];
+    [lilacBubble.layer setValue:to forKeyPath:keypath];
+    lilacVisible = !lilacVisible;
+}
+
+- (void) animateGreenBubble {
+    NSValue * from = [NSNumber numberWithFloat:greenBubble.layer.position.x];
+    NSValue * to = greenVisible ? [NSNumber numberWithFloat:POS_GREEN_RIGHT] : [NSNumber numberWithFloat:POS_GREEN_LEFT];
+    NSString * keypath = @"position.x";
+    [greenBubble.layer addAnimation:[self bounceAnimationFrom:from to:to forKeyPath:keypath withDuration:.8] forKey:@"bounce"];
+    [greenBubble.layer setValue:to forKeyPath:keypath];
+    greenVisible = !greenVisible;
+}
+
+- (void) animateBlueBubble {
+    NSValue * from = [NSNumber numberWithFloat:blueBubble.layer.position.x];
+    NSValue * to = blueVisible ? [NSNumber numberWithFloat:POS_BLUE_RIGHT] : [NSNumber numberWithFloat:POS_BLUE_LEFT];
+    NSString * keypath = @"position.x";
+    [blueBubble.layer addAnimation:[self bounceAnimationFrom:from to:to forKeyPath:keypath withDuration:.8] forKey:@"bounce"];
+    [blueBubble.layer setValue:to forKeyPath:keypath];
+    blueVisible = !blueVisible;
+}
+- (void) animateOrangeBubble {
+    NSValue * from = [NSNumber numberWithFloat:orangeBubble.layer.position.x];
+    NSValue * to = orangeVisible ? [NSNumber numberWithFloat:POS_ORANGE_RIGHT] : [NSNumber numberWithFloat:POS_ORANGE_LEFT];
+    NSString * keypath = @"position.x";
+    [orangeBubble.layer addAnimation:[self bounceAnimationFrom:from to:to forKeyPath:keypath withDuration:.8] forKey:@"bounce"];
+    [orangeBubble.layer setValue:to forKeyPath:keypath];
+    orangeVisible = !orangeVisible;
+}
+#pragma mark - CAAnimations
+
+-(CABasicAnimation *)bounceAnimationFrom:(NSValue *)from
+                                      to:(NSValue *)to
+                              forKeyPath:(NSString *)keypath
+                            withDuration:(CFTimeInterval)duration
+{
+    CABasicAnimation * result = [CABasicAnimation animationWithKeyPath:keypath];
+    [result setFromValue:from];
+    [result setToValue:to];
+    [result setDuration:duration];
+    
+    [result setTimingFunction:[CAMediaTimingFunction functionWithControlPoints:.5 :1.8 :.8 :0.8]];
+    
+    return  result;
+}
+
 
 @end

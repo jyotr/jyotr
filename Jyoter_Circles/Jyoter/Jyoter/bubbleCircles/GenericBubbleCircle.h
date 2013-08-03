@@ -10,9 +10,7 @@
 
 @interface GenericBubbleCircle : UIView
 
-
-- (id) initWithColorFrameAnimationType:(CGRect) frame withColor: (UIColor *) color withRadius : (CGFloat) radius;
-
+- (id) initWithColorFrameAnimationType:(CGRect) frame withColor: (UIColor *) color withRadius : (CGFloat) radius withText: (NSString *) text;
 
 @end
 

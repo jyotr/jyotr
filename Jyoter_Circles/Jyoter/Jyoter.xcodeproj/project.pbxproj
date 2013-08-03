@@ -22,7 +22,6 @@
 		2C9522BE17AC0AE100347EBB /* UINavigationControllerFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522BC17AC0AE100347EBB /* UINavigationControllerFade.m */; };
 		2C9522C017AC0B3400347EBB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9522BF17AC0B3400347EBB /* QuartzCore.framework */; };
 		2C9522C417AC0F4200347EBB /* GenericBubbleCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522C317AC0F4200347EBB /* GenericBubbleCircle.m */; };
-		2C9522C717AC23E300347EBB /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9522C617AC23E300347EBB /* UIButton+Glossy.m */; };
 		2C9522C917AC256800347EBB /* Knewave-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C9522C817AC256800347EBB /* Knewave-Regular.ttf */; };
 		2C9522CB17AC296800347EBB /* desyrel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C9522CA17AC296800347EBB /* desyrel.ttf */; };
 /* End PBXBuildFile section */
@@ -52,8 +51,6 @@
 		2C9522BF17AC0B3400347EBB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2C9522C217AC0F4200347EBB /* GenericBubbleCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericBubbleCircle.h; sourceTree = "<group>"; };
 		2C9522C317AC0F4200347EBB /* GenericBubbleCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericBubbleCircle.m; sourceTree = "<group>"; };
-		2C9522C517AC23E300347EBB /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
-		2C9522C617AC23E300347EBB /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
 		2C9522C817AC256800347EBB /* Knewave-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knewave-Regular.ttf"; sourceTree = "<group>"; };
 		2C9522CA17AC296800347EBB /* desyrel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = desyrel.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,8 +136,6 @@
 		2C9522C117AC0F0700347EBB /* bubbleCircles */ = {
 			isa = PBXGroup;
 			children = (
-				2C9522C517AC23E300347EBB /* UIButton+Glossy.h */,
-				2C9522C617AC23E300347EBB /* UIButton+Glossy.m */,
 				2C9522C217AC0F4200347EBB /* GenericBubbleCircle.h */,
 				2C9522C317AC0F4200347EBB /* GenericBubbleCircle.m */,
 			);
@@ -221,7 +216,6 @@
 				2C9522BD17AC0AE100347EBB /* UINavigationController+Fade.m in Sources */,
 				2C9522BE17AC0AE100347EBB /* UINavigationControllerFade.m in Sources */,
 				2C9522C417AC0F4200347EBB /* GenericBubbleCircle.m in Sources */,
-				2C9522C717AC23E300347EBB /* UIButton+Glossy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +330,7 @@
 				2C9522B217AC0A3E00347EBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
