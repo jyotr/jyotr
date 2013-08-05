@@ -15,8 +15,10 @@
 
 @implementation ViewController {
     CLLocationManager *locationManager;
+    MWDatePicker *datePicker;
     UIView *geocoderView;
     UILabel *addressLabel;
+    UIImageView *snapshotImageView;
     int markerCount;
 }
 
@@ -82,7 +84,7 @@
     [self startStandardUpdates];
     [self startHeadingEvents];
     
-    MWDatePicker *datePicker = [[MWDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    datePicker = [[MWDatePicker alloc] initWithFrame:CGRectMake(0, 0, 250, 50)];
     [datePicker setDelegate:self];
     [datePicker setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
     [datePicker setFontColor:[UIColor whiteColor]];
@@ -90,25 +92,49 @@
     
     [datePicker setDate:[NSDate date] animated:YES];
     
-    [self.view addSubview:datePicker];
+    datePicker.hidden = NO;
     
-    geocoderView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, 320, 50)];
-    geocoderView.backgroundColor = [UIColor grayColor];
+//    [self.view addSubview:datePicker];
+    
+    geocoderView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, 200, 50)];
+    geocoderView.backgroundColor = [UIColor blackColor];
 //    geocoderView.alpha = 0.7;
     
-    addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 320, 50)];
+    addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 50)];
     addressLabel.backgroundColor = [UIColor clearColor];
     addressLabel.textColor = [UIColor whiteColor];
     
-    addressLabel.font = [UIFont systemFontOfSize:13.0f];
-    addressLabel.numberOfLines = 2;
-    addressLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    addressLabel.font = [UIFont systemFontOfSize:25.0f];
     
     addressLabel.text = @"";
     [geocoderView addSubview:addressLabel];
     
-    [self.view addSubview:geocoderView];
+//    [self.view addSubview:geocoderView];
     markerCount = 0;
+    
+    
+    
+    snapshotImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    
+    [self.view addSubview:snapshotImageView];
+    
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
+    UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    
+    topLabel.backgroundColor = [UIColor whiteColor];
+    topLabel.textColor = [UIColor blackColor];
+    
+    topLabel.font = [UIFont systemFontOfSize:25.0f];
+    topLabel.textAlignment = UITextAlignmentCenter;
+    topLabel.numberOfLines = 2;
+    topLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    topLabel.text = @"Select Place for Dating";
+    [topView addSubview:topLabel];
+    
+    [self.view addSubview:topView];
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -122,11 +148,18 @@
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
     [self createMarkerWithCoordinates:coordinate];
+//    snapshotImageView.image = [self createMapSnapshot:mapView];
+    
+    NSURL * imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=16&size=320x200&sensor=false&visual_refresh=true&scale=2&format=png&maptype=roadmap&markers=%f,%f", coordinate.latitude, coordinate.longitude,coordinate.latitude, coordinate.longitude]];
+    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage * image = [UIImage imageWithData:imageData];
+    snapshotImageView.image = image;
 }
 
 - (void)mapView:(GMSMapView *)mapView willMove:(BOOL)gesture {
     NSLog(@"mapView willMove:");
     NSLog(gesture ? @"Yes" : @"No");
+    datePicker.hidden = YES;
     //    [mapView clear];
 }
 
@@ -136,6 +169,14 @@
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
     NSLog(@"mapView idleAtCameraPosition: %@", position);
+    datePicker.hidden = NO;
+}
+
+- (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
+    UIView *infoWindow = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 100)];
+    [infoWindow addSubview:datePicker];
+    
+    return geocoderView;
 }
 
 #pragma mark - Map Helper
@@ -165,42 +206,60 @@
 -(void)createMarkerWithCoordinates:(CLLocationCoordinate2D)coordinate {
 //    [self drawCircleWithCenter:coordinate andRadius:100];
     [self.googleMapView clear];
+    GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
+    marker.title = @"Loading";
+    marker.snippet = @"";
+    marker.animated = YES;
+    //            marker.icon = [GMSMarker markerImageWithColor:[UIColor whiteColor]];
+    markerCount++;
+    switch (markerCount) {
+        case 1:
+            marker.icon = [UIImage imageNamed:@"marker_blue.png"];
+            break;
+        case 2:
+            marker.icon = [UIImage imageNamed:@"marker_green.png"];
+            break;
+        case 3:
+            marker.icon = [UIImage imageNamed:@"marker_pink.png"];
+            markerCount = 0;
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    marker.infoWindowAnchor = CGPointMake(0.5, 0.0);
+    
+    marker.map = self.googleMapView;
+    
+
+    
     id handler = ^(GMSReverseGeocodeResponse *response, NSError *error) {
         if (error == nil) {
             GMSReverseGeocodeResult *result = response.firstResult;
             NSLog(@"result.addressLine1 %@", result.addressLine1);
             NSLog(@"result.addressLine2 %@", result.addressLine2);
             addressLabel.text = result.addressLine1;
-            GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
             marker.title = result.addressLine1;
             marker.snippet = result.addressLine2;
-            marker.animated = YES;
-//            marker.icon = [GMSMarker markerImageWithColor:[UIColor whiteColor]];
-            markerCount++;
-            switch (markerCount) {
-                case 1:
-                    marker.icon = [UIImage imageNamed:@"marker_blue.png"];
-                    break;
-                case 2:
-                    marker.icon = [UIImage imageNamed:@"marker_green.png"];
-                    break;
-                case 3:
-                    marker.icon = [UIImage imageNamed:@"marker_pink.png"];
-                    markerCount = 0;
-                    break;
-                    
-                default:
-                    break;
-            }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+                self.googleMapView.selectedMarker = marker;
+            });
             
-            
-            marker.infoWindowAnchor = CGPointMake(0.5, 0.0);
-            
-            marker.map = self.googleMapView;
+        
         }
     };
     GMSGeocoder *geocoder_ = [GMSGeocoder geocoder];
     [geocoder_ reverseGeocodeCoordinate:coordinate completionHandler:handler];
+}
+
+- (UIImage *)createMapSnapshot:(GMSMapView *)mapView{
+    UIGraphicsBeginImageContext(mapView.frame.size);
+    [mapView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *screenShotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return screenShotImage;
 }
 
 #pragma mark - Movement

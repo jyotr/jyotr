@@ -6,6 +6,12 @@
 //  Copyright (c) 2013 mwermuth.com. All rights reserved.
 //
 
+#define ROW_HEIGHT 50.0
+
+#define DATE_FONT_SIZE 18.0
+#define TIME_FONT_SIZE 28.0
+
+
 #import "MWDatePicker.h"
 
 @interface MWDatePicker()
@@ -183,7 +189,7 @@
 
 - (void)addContent{
     
-    rowHeight = 50;
+    rowHeight = ROW_HEIGHT;
     
     centralRowOffset = (self.frame.size.height - rowHeight)/2;
     
@@ -437,15 +443,15 @@
     switch (component) {
         case 0:
             label.textColor = self.fontColor;
-            label.font = [UIFont systemFontOfSize:19.0];
+            label.font = [UIFont systemFontOfSize:DATE_FONT_SIZE];
             break;
         case 1:
             label.textColor = self.fontColor;
-            label.font = [UIFont systemFontOfSize:33.0];
+            label.font = [UIFont systemFontOfSize:TIME_FONT_SIZE];
             break;
         case 2:
             label.textColor = self.fontColor;
-            label.font = [UIFont systemFontOfSize:33.0];
+            label.font = [UIFont systemFontOfSize:TIME_FONT_SIZE];
             break;
     }
     
