@@ -69,7 +69,7 @@
     
     pinkBubble = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(POS_PINK_LEFT, 160, 160, 160) withColor: RGBA(255, 61, 97, 1.0) withRadius:80.0 withText:@"Create"];
     
-    lilacBubble = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(POS_LILAC_LEFT, 280, 100, 100) withColor: RGBA(205, 97, 255, 1.0) withRadius:50.0 withText:@"???"];
+    lilacBubble = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(POS_LILAC_LEFT, 280, 100, 100) withColor: RGBA(205, 97, 255, 1.0) withRadius:50.0 withText:@"Call"];
     
     blueBubble = [[GenericBubbleCircle alloc] initWithColorFrameAnimationType:CGRectMake(POS_BLUE_LEFT, 240, 90, 90) withColor: RGBA(79, 188, 224, 1.0) withRadius:45.0 withText:@"fb"];
     
@@ -89,11 +89,16 @@
 }
 
 - (void) animateBubbles {
-    [self animatePinkBubble];
-    [self animateLilacBubble];
-    [self animateGreenBubble];
-    [self animateBlueBubble];
-    [self animateOrangeBubble];
+    [self performSelector:@selector(animatePinkBubble) withObject:nil afterDelay:.0];
+    [self performSelector:@selector(animateGreenBubble) withObject:nil afterDelay:.8];
+    [self performSelector:@selector(animateOrangeBubble) withObject:nil afterDelay:.9];
+    [self performSelector:@selector(animateLilacBubble) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(animateBlueBubble) withObject:nil afterDelay:1.9];
+//    [self animatePinkBubble];
+//    [self animateLilacBubble];
+//    [self animateGreenBubble];
+//    [self animateBlueBubble];
+//    [self animateOrangeBubble];
 }
 
 - (void) animatePinkBubble {
