@@ -38,6 +38,7 @@
     BOOL blueVisible;
     BOOL greenVisible;
     BOOL orangeVisible;
+    BOOL bubbleZoomedIn;
 }
 
 @end
@@ -55,6 +56,7 @@
     blueVisible = YES;
     greenVisible = YES;
     orangeVisible = YES;
+    bubbleZoomedIn = NO;
     
     self.navigationController.navigationBar.tintColor = [UIColor lightGrayColor];
     self.view.frame = CGRectMake(0, 0, 320, 480);
@@ -86,6 +88,65 @@
     [self.view bringSubviewToFront: pinkBubble];
     
     [self animateBubbles];
+}
+
+- (void) zoomInBubble:(GenericBubbleCircle *) bubble {
+    [UIView animateWithDuration:0.7f
+                     animations:^
+     {
+         [self.view bringSubviewToFront:bubble];
+         [bubble setCenter:CGPointMake(160, 240)];
+         
+     }
+                     completion:^(BOOL finished)
+     {
+         [UIView animateWithDuration:1.3f delay:0.0 options:0
+                          animations:^{
+                              bubble.transform = CGAffineTransformScale(bubble.transform, 10, 10);
+                          }
+                          completion:^(BOOL finished){
+                              
+                          }];
+     }
+     ];
+    bubbleZoomedIn = YES;
+}
+
+
+- (void) zoomOutBubble:(GenericBubbleCircle *) bubble {
+    [UIView animateWithDuration:0.7f
+                     animations:^
+     {
+         bubble.transform = CGAffineTransformScale(bubble.transform, 1.0f/10.0f, 1.0f/10);  
+     }
+                     completion:^(BOOL finished)
+     {
+         [UIView animateWithDuration:1.3f delay:0.0 options:0
+                          animations:^{
+                               [bubble setCenter:CGPointMake(160, 240)];
+                          }
+                          completion:^(BOOL finished){
+                             
+                          }];
+     }
+     ];
+    bubbleZoomedIn = NO;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    NSLog(@"%@", touch.view);
+    if([touch.view isKindOfClass:[GenericBubbleCircle class]])
+    {
+        // perform my actions
+        if (bubbleZoomedIn) {
+            [self zoomOutBubble:(GenericBubbleCircle*)touch.view];
+        } else {
+            [self zoomInBubble:(GenericBubbleCircle*)touch.view];
+        }
+    
+    }
 }
 
 - (void) animateBubbles {
