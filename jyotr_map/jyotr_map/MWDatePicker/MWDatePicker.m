@@ -8,7 +8,7 @@
 
 #define ROW_HEIGHT 50.0
 
-#define DATE_FONT_SIZE 18.0
+#define DATE_FONT_SIZE 16.0
 #define TIME_FONT_SIZE 28.0
 
 
@@ -376,7 +376,7 @@
     
     [comps2 setDay:31];
     [comps2 setMonth:12];
-    [comps2 setYear:2100];
+    [comps2 setYear:2013];
     NSDate *endDate = [calendar dateFromComponents:comps2];
     
     day = [NSMutableArray array];
@@ -544,7 +544,7 @@
 }
 
 - (NSDate *)dateWithYear:(NSInteger)yearS month:(NSInteger)monthS day:(NSInteger)dayS hour:(NSInteger)hourS minute:(NSInteger)minuteS {
-    self.calendar.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Paris"];
+    self.calendar.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Yerevan"];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setYear:yearS];
     [components setMonth:monthS];

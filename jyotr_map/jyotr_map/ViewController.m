@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ApproveViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 @interface ViewController ()
@@ -18,7 +19,9 @@
     MWDatePicker *datePicker;
     UIView *geocoderView;
     UILabel *addressLabel;
-    UIImageView *snapshotImageView;
+    UIButton *submitButton;
+    NSDate *selectedDate;
+    CLLocationCoordinate2D selectedCoordinate;
     int markerCount;
 }
 
@@ -32,7 +35,7 @@
                                                              bearing:0
                                                         viewingAngle:45];
     
-    self.googleMapView = [GMSMapView mapWithFrame:self.view.bounds camera:yerevan];
+    self.googleMapView = [GMSMapView mapWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 410) camera:yerevan];
     
     //Set my location
     self.googleMapView.myLocationEnabled = YES;
@@ -81,43 +84,30 @@
     
     [self.view addSubview:self.googleMapView];
     
+    
+    //Start location updates
     [self startStandardUpdates];
     [self startHeadingEvents];
     
-    datePicker = [[MWDatePicker alloc] initWithFrame:CGRectMake(0, 0, 250, 50)];
-    [datePicker setDelegate:self];
-    [datePicker setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
-    [datePicker setFontColor:[UIColor whiteColor]];
-    [datePicker update];
-    
-    [datePicker setDate:[NSDate date] animated:YES];
-    
-    datePicker.hidden = NO;
-    
-//    [self.view addSubview:datePicker];
-    
-    geocoderView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, 200, 50)];
+        
+    //Geocoder view init
+    geocoderView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, 200, 40)];
     geocoderView.backgroundColor = [UIColor blackColor];
-//    geocoderView.alpha = 0.7;
     
-    addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 50)];
+    addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 40)];
     addressLabel.backgroundColor = [UIColor clearColor];
     addressLabel.textColor = [UIColor whiteColor];
     
-    addressLabel.font = [UIFont systemFontOfSize:25.0f];
+    addressLabel.font = [UIFont systemFontOfSize:16.0f];
     
     addressLabel.text = @"";
     [geocoderView addSubview:addressLabel];
+
     
-//    [self.view addSubview:geocoderView];
     markerCount = 0;
     
     
-    
-    snapshotImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
-    
-    [self.view addSubview:snapshotImageView];
-    
+    //Header view init
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
     UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
     
@@ -133,10 +123,41 @@
     [topView addSubview:topLabel];
     
     [self.view addSubview:topView];
-
+    
+    
+    //DatePicker init
+    datePicker = [[MWDatePicker alloc] initWithFrame:CGRectMake(0, 410, 270, 50)];
+    [datePicker setDelegate:self];
+    [datePicker setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
+    [datePicker setFontColor:[UIColor whiteColor]];
+    [datePicker update];
+    
+    [datePicker setDate:[NSDate date] animated:YES];
+    
+    
+    [self.view addSubview:datePicker];
+    
+    //Submit button init
+    
+    submitButton = [[UIButton alloc] init];
+    submitButton.backgroundColor = [UIColor colorWithRed:5/255.0f green:252/255.0f blue:181/255.0f alpha:1.0f];
+//    [submitButton setImage:[UIImage imageNamed:@"submitButton.png"] forState:UIControlStateNormal];
+//    [submitButton setImage:[UIImage imageNamed:@"submitButton.png"] forState:UIControlStateSelected];
+//    [submitButton setImage:[UIImage imageNamed:@"submitButton.png"] forState:UIControlStateHighlighted];
+    submitButton.showsTouchWhenHighlighted = YES;
+    submitButton.frame = CGRectMake(270, 410, 50, 50);
+    [submitButton addTarget:self action:@selector(submitDate) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:submitButton];
     
 }
 
+- (void)submitDate {
+    ApproveViewController *approveVC = [[ApproveViewController alloc] init];
+    approveVC.selectedCoordinate = selectedCoordinate;
+    approveVC.selectedDate = selectedDate;
+    [self.navigationController pushViewController:approveVC animated:YES];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -148,19 +169,14 @@
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
     [self createMarkerWithCoordinates:coordinate];
-//    snapshotImageView.image = [self createMapSnapshot:mapView];
+    selectedCoordinate = coordinate;
     
-    NSURL * imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=16&size=320x200&sensor=false&visual_refresh=true&scale=2&format=png&maptype=roadmap&markers=%f,%f", coordinate.latitude, coordinate.longitude,coordinate.latitude, coordinate.longitude]];
-    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage * image = [UIImage imageWithData:imageData];
-    snapshotImageView.image = image;
+    
 }
 
 - (void)mapView:(GMSMapView *)mapView willMove:(BOOL)gesture {
     NSLog(@"mapView willMove:");
     NSLog(gesture ? @"Yes" : @"No");
-    datePicker.hidden = YES;
-    //    [mapView clear];
 }
 
 - (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
@@ -169,13 +185,9 @@
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
     NSLog(@"mapView idleAtCameraPosition: %@", position);
-    datePicker.hidden = NO;
 }
 
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
-    UIView *infoWindow = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 100)];
-    [infoWindow addSubview:datePicker];
-    
     return geocoderView;
 }
 
@@ -342,6 +354,7 @@
 -(void)datePicker:(MWDatePicker *)picker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSLog(@"datePicker didSelectRow %i, inComponent %i", row, component);
     NSLog(@"%@",[picker getDate]);
+    selectedDate = [picker getDate];
 }
 
 - (UIColor *) backgroundColorForDatePicker:(MWDatePicker *)picker

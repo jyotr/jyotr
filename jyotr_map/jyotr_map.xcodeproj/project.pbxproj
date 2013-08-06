@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0C6EA4A17B1B52300EDF1C5 /* ApproveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C6EA4917B1B52300EDF1C5 /* ApproveViewController.m */; };
+		C0C6EA4C17B1C2E300EDF1C5 /* backButton in Resources */ = {isa = PBXBuildFile; fileRef = C0C6EA4B17B1C2E300EDF1C5 /* backButton */; };
 		C0FAB85317AC5FB6008D7013 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FAB85217AC5FB6008D7013 /* UIKit.framework */; };
 		C0FAB85517AC5FB6008D7013 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FAB85417AC5FB6008D7013 /* Foundation.framework */; };
 		C0FAB85717AC5FB6008D7013 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FAB85617AC5FB6008D7013 /* CoreGraphics.framework */; };
@@ -41,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C0C6EA4817B1B52300EDF1C5 /* ApproveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApproveViewController.h; sourceTree = "<group>"; };
+		C0C6EA4917B1B52300EDF1C5 /* ApproveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApproveViewController.m; sourceTree = "<group>"; };
+		C0C6EA4B17B1C2E300EDF1C5 /* backButton */ = {isa = PBXFileReference; lastKnownFileType = file; path = backButton; sourceTree = "<group>"; };
 		C0FAB84F17AC5FB6008D7013 /* jyotr_map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jyotr_map.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FAB85217AC5FB6008D7013 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C0FAB85417AC5FB6008D7013 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -156,6 +161,8 @@
 				C0FAB86217AC5FB6008D7013 /* AppDelegate.m */,
 				C0FAB86A17AC5FB6008D7013 /* ViewController.h */,
 				C0FAB86B17AC5FB6008D7013 /* ViewController.m */,
+				C0C6EA4817B1B52300EDF1C5 /* ApproveViewController.h */,
+				C0C6EA4917B1B52300EDF1C5 /* ApproveViewController.m */,
 				C0FAB85917AC5FB6008D7013 /* Supporting Files */,
 			);
 			path = jyotr_map;
@@ -164,6 +171,7 @@
 		C0FAB85917AC5FB6008D7013 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C0C6EA4B17B1C2E300EDF1C5 /* backButton */,
 				C0FAB85A17AC5FB6008D7013 /* jyotr_map-Info.plist */,
 				C0FAB85B17AC5FB6008D7013 /* InfoPlist.strings */,
 				C0FAB85E17AC5FB6008D7013 /* main.m */,
@@ -268,6 +276,7 @@
 				C0FAB8A217AC6C19008D7013 /* marker_blue@2x.png in Resources */,
 				C0FAB8A317AC6C19008D7013 /* marker_green@2x.png in Resources */,
 				C0FAB8A417AC6C19008D7013 /* marker_pink@2x.png in Resources */,
+				C0C6EA4C17B1C2E300EDF1C5 /* backButton in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +291,7 @@
 				C0FAB86317AC5FB6008D7013 /* AppDelegate.m in Sources */,
 				C0FAB86C17AC5FB6008D7013 /* ViewController.m in Sources */,
 				C0FAB89717AC6290008D7013 /* MWDatePicker.m in Sources */,
+				C0C6EA4A17B1B52300EDF1C5 /* ApproveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
