@@ -8,6 +8,8 @@
 
 #import "ApproveViewController.h"
 #import "AppDelegate.h"
+#import "UIImage+Blur.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ApproveViewController ()
 
@@ -15,6 +17,11 @@
 
 @implementation ApproveViewController {
     UIImageView *snapshotImageView;
+    UIButton *approveButton;
+    UIImageView *shareButtons;
+    UIView *blurView;
+    UIImageView *blurImageView;
+    BOOL blur;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -27,7 +34,6 @@
 }
 
 - (void) goBack {
-    
 //    self.backButton.hidden = YES;
     AppDelegate * del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -94,21 +100,72 @@
     
     [self.view addSubview:timeLabel];
     
+    
+    //Share buttons
+    shareButtons = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 117)];
+    shareButtons.image = [UIImage imageNamed:@"shareButtons.png"];
+    
+    [self.view addSubview:shareButtons];
+    
+    blurImageView = [[UIImageView alloc] initWithFrame:shareButtons.frame];
+    
+    [self.view addSubview:blurImageView];
+    
+    blurImageView.image = [self getBlurredImage:shareButtons.frame withLevel:4];
+        
     //Footer view init
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 410, 320, 100)];
-    UILabel *bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    approveButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 360, 320, 100)];
+    UILabel *approveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
     
-    bottomLabel.backgroundColor = [UIColor colorWithRed:5/255.0f green:252/255.0f blue:181/255.0f alpha:1.0f];
-    bottomLabel.textColor = [UIColor whiteColor];
+    approveLabel.backgroundColor = [UIColor colorWithRed:5/255.0f green:252/255.0f blue:181/255.0f alpha:1.0f];
+    approveLabel.textColor = [UIColor whiteColor];
     
-    bottomLabel.font = [UIFont systemFontOfSize:25.0f];
-    bottomLabel.textAlignment = UITextAlignmentCenter;
+    approveLabel.font = [UIFont systemFontOfSize:25.0f];
+    approveLabel.textAlignment = UITextAlignmentCenter;
     
-    bottomLabel.text = @"Approve";
-    [bottomView addSubview:bottomLabel];
+    approveLabel.text = @"Approve";
+    [approveButton addSubview:approveLabel];
+    [approveButton addTarget:self action:@selector(approve) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:bottomView];
+    [self.view addSubview:approveButton];
+}
+
+- (void) approve {
+    approveButton.hidden = NO;
+    approveButton.alpha = 1.0f;
+    // Then fades it away after 2 seconds (the cross-fade animation will take 0.5s)
+    [UIView animateWithDuration:0.7 delay:0.0 options:0 animations:^{
+        // Animate the alpha value of your imageView from 1.0 to 0.0 here
+        approveButton.alpha = 0.0f;
+        blurImageView.image = [self getBlurredImage:shareButtons.frame withLevel:1];
+    } completion:^(BOOL finished) {
+        // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+        approveButton.hidden = YES;
+        blurImageView.hidden = YES;
+    }];
     
+    return;
+}
+
+- (UIImage*)getBlurredImage:(CGRect)blurRect withLevel:(int)level {
+    // x, y and size variables below are only examples.
+    // You will want to calculate this in code based on the view you will be presenting.
+    float x = blurRect.origin.x;
+    float y = blurRect.origin.y;
+    CGSize size = blurRect.size;
+    UIGraphicsBeginImageContext(size);
+    CGContextRef c = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(c, -x, -y);
+    [self.view.layer renderInContext:c]; // view is the view you are grabbing the screen shot of. The view that is to be blurred.
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, 1); // convert to jpeg
+    image = [UIImage imageWithData:imageData];
+    for (int i=1; i<= level; i++) {
+        image = [image gaussianBlurWithBias:0.0f];
+    }
+    return image;
 }
 
 - (void)didReceiveMemoryWarning
