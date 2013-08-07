@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "UIImage+Blur.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MHNatGeoViewControllerTransition.h"
 
 @interface ApproveViewController ()
 
@@ -34,10 +35,11 @@
 }
 
 - (void) goBack {
+    [self dismissNatGeoViewController];
 //    self.backButton.hidden = YES;
-    AppDelegate * del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    [del.navController popViewControllerAnimated:YES];
+//    AppDelegate * del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    
+//    [del.navController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad

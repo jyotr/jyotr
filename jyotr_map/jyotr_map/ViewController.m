@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ApproveViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "MHNatGeoViewControllerTransition.h"
 
 @interface ViewController ()
 
@@ -156,7 +157,10 @@
     ApproveViewController *approveVC = [[ApproveViewController alloc] init];
     approveVC.selectedCoordinate = selectedCoordinate;
     approveVC.selectedDate = selectedDate;
-    [self.navigationController pushViewController:approveVC animated:YES];
+    [self presentNatGeoViewController:approveVC completion:^(BOOL finished) {
+        NSLog(@"Present complete!");
+    }];
+//    [self.navigationController pushViewController:approveVC animated:YES];
 }
 - (void)didReceiveMemoryWarning
 {

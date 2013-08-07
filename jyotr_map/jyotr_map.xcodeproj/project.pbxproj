@@ -40,6 +40,7 @@
 		C0FAB8A217AC6C19008D7013 /* marker_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB89F17AC6C19008D7013 /* marker_blue@2x.png */; };
 		C0FAB8A317AC6C19008D7013 /* marker_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB8A017AC6C19008D7013 /* marker_green@2x.png */; };
 		C0FAB8A417AC6C19008D7013 /* marker_pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0FAB8A117AC6C19008D7013 /* marker_pink@2x.png */; };
+		D8E75CDA17B280A400C44406 /* MHNatGeoViewControllerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E75CD917B280A400C44406 /* MHNatGeoViewControllerTransition.m */; };
 		D8F516C817B2629900AB25E8 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F516C717B2629900AB25E8 /* CoreImage.framework */; };
 		D8F516CE17B26D3D00AB25E8 /* UIImage+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F516CD17B26D3D00AB25E8 /* UIImage+Blur.m */; };
 		D8F516D017B26DFC00AB25E8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F516CF17B26DFB00AB25E8 /* Accelerate.framework */; };
@@ -87,6 +88,8 @@
 		C0FAB89F17AC6C19008D7013 /* marker_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker_blue@2x.png"; sourceTree = "<group>"; };
 		C0FAB8A017AC6C19008D7013 /* marker_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker_green@2x.png"; sourceTree = "<group>"; };
 		C0FAB8A117AC6C19008D7013 /* marker_pink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker_pink@2x.png"; sourceTree = "<group>"; };
+		D8E75CD817B280A400C44406 /* MHNatGeoViewControllerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHNatGeoViewControllerTransition.h; sourceTree = "<group>"; };
+		D8E75CD917B280A400C44406 /* MHNatGeoViewControllerTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHNatGeoViewControllerTransition.m; sourceTree = "<group>"; };
 		D8F516B617B25EBB00AB25E8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		D8F516B817B25EC100AB25E8 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D8F516C717B2629900AB25E8 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -175,6 +178,7 @@
 				D8F516CC17B26D3D00AB25E8 /* UIImage+Blur.h */,
 				D8F516CD17B26D3D00AB25E8 /* UIImage+Blur.m */,
 				C0FAB89817AC6B6B008D7013 /* assets */,
+				D8E75CD717B280A400C44406 /* MHNatGeoViewControllerTransition */,
 				C0FAB89417AC6290008D7013 /* MWDatePicker */,
 				C0FAB86117AC5FB6008D7013 /* AppDelegate.h */,
 				C0FAB86217AC5FB6008D7013 /* AppDelegate.m */,
@@ -190,8 +194,6 @@
 		C0FAB85917AC5FB6008D7013 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C0C6EA4B17B1C2E300EDF1C5 /* backButton.png */,
-				D8F516D317B2762A00AB25E8 /* shareButtons@2x.png */,
 				C0FAB85A17AC5FB6008D7013 /* jyotr_map-Info.plist */,
 				C0FAB85B17AC5FB6008D7013 /* InfoPlist.strings */,
 				C0FAB85E17AC5FB6008D7013 /* main.m */,
@@ -224,6 +226,8 @@
 		C0FAB89817AC6B6B008D7013 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				C0C6EA4B17B1C2E300EDF1C5 /* backButton.png */,
+				D8F516D317B2762A00AB25E8 /* shareButtons@2x.png */,
 				C0FAB89F17AC6C19008D7013 /* marker_blue@2x.png */,
 				C0FAB8A017AC6C19008D7013 /* marker_green@2x.png */,
 				C0FAB8A117AC6C19008D7013 /* marker_pink@2x.png */,
@@ -233,6 +237,16 @@
 			);
 			name = assets;
 			sourceTree = "<group>";
+		};
+		D8E75CD717B280A400C44406 /* MHNatGeoViewControllerTransition */ = {
+			isa = PBXGroup;
+			children = (
+				D8E75CD817B280A400C44406 /* MHNatGeoViewControllerTransition.h */,
+				D8E75CD917B280A400C44406 /* MHNatGeoViewControllerTransition.m */,
+			);
+			name = MHNatGeoViewControllerTransition;
+			path = jyotr_map/MHNatGeoViewControllerTransition;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -314,6 +328,7 @@
 				C0FAB89717AC6290008D7013 /* MWDatePicker.m in Sources */,
 				C0C6EA4A17B1B52300EDF1C5 /* ApproveViewController.m in Sources */,
 				D8F516CE17B26D3D00AB25E8 /* UIImage+Blur.m in Sources */,
+				D8E75CDA17B280A400C44406 /* MHNatGeoViewControllerTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
